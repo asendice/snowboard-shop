@@ -1,0 +1,11 @@
+.container {
+  min-width: 28rem;
+  border: solid 1px var(--color-black);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.container img {
+  width: 100%;
+}

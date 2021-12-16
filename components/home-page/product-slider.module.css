@@ -1,0 +1,31 @@
+.container {
+  width: 100%;
+  min-height: 20vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container ul {
+  margin: 0 auto;
+  width: 90%;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  transition: all .4s ease;
+}
+
+.iconContainer {
+  height: 45rem;
+  background-color: var(--color-white);
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 6rem;
+  cursor: pointer;
+  position: relative;
+}

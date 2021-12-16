@@ -27,10 +27,12 @@ ul {
   padding: 0;
 }
 
-
-
 h2 {
   font-size: 5rem;
+}
+
+h3 {
+  font-size: 3rem;
 }
 
 * {
