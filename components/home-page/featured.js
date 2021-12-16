@@ -40,12 +40,14 @@ const DUMMY_DATA = [
   },
 ]
 
-function Featured() {
+function Featured(props) {
+  const { snowboards } = props;
+  console.log(props)
   return (
     <div className={classes.container}>
       <h2>Featured</h2>
       <h3>Boards</h3>
-      <ProductSlider items={DUMMY_DATA} />
+      <ProductSlider items={snowboards} />
       <h3>Clothes</h3>
       <ProductSlider items={DUMMY_DATA} />
     </div>
