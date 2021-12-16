@@ -27,6 +27,12 @@ ul {
   padding: 0;
 }
 
+
+
+h2 {
+  font-size: 5rem;
+}
+
 * {
   box-sizing: border-box;
 }
