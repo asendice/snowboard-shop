@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-grey-dark);
+  color: var(--color-grey-light);
+  font-size: 1.8rem;
+  padding: 2rem 4rem;
+}
+
+.connect {
+  margin: 0;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: solid 1px var(--color-grey-light);
+}
+
+.socials {
+  width: 20rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+.icon {
+  font-size: 4rem;
+
+}
+
+.grid {
+  padding: 2rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: solid 1px var(--color-grey-light);
+}
+
+.gridItem {
+  list-style: none;
+}
