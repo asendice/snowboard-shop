@@ -30,3 +30,7 @@ ul {
 * {
   box-sizing: border-box;
 }
+
+.mt50 {
+  margin-top: 5rem;
+}

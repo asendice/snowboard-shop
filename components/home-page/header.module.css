@@ -1,0 +1,8 @@
+.container {
+  max-width: 100rem;
+  height: 40vh;
+  margin: 0 auto;
+  margin-top: -10rem;
+  z-index: 10;
+  background-color: pink;
+}
