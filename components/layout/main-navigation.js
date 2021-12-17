@@ -23,7 +23,7 @@ function MainNavigation() {
         </li>
       </ul>
       <div className={classes.actions}>
-        <SearchBar />
+        <SearchBar placeholder="Search Snowboard-Shop" />
         <BsCart3 className={classes.icon} />
       </div>
       <div className={classes.burger}>

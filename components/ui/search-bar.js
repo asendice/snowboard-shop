@@ -1,9 +1,10 @@
 import classes from "./search-bar.module.css";
 import { BsSearch } from "react-icons/bs";
-function SearchBar() {
+function SearchBar(props) {
+  const { placeholder } = props;
   return (
     <div className={classes.container}>
-      <input />
+      <input className={classes.input} placeholder={placeholder} />
       <BsSearch className={classes.icon} />
     </div>
   );
