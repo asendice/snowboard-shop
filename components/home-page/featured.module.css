@@ -7,3 +7,7 @@
   width: max-content;
   margin: 1rem auto;
 }
+
+.container h3 {
+  margin-left: 5%;
+}
