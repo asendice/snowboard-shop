@@ -25,7 +25,7 @@ function ProductSlider(props) {
       </div>
       <ul style={{ transform: `translateX(-${activeIndex * 25}%)` }}>
         {items.map((item) => (
-          <Product key={item.id} item={item} />
+          <Product key={item._id} item={item} />
         ))}
       </ul>
       <div className={classes.iconContainer}>
