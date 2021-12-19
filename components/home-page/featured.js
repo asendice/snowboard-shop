@@ -46,7 +46,7 @@ function Featured(props) {
   return (
     <div className={classes.container}>
       <h2>Featured</h2>
-      <h3>Boards</h3>
+      <h3>Snowboards</h3>
       <ProductSlider items={snowboards} />
       <h3>Clothes</h3>
       <ProductSlider items={DUMMY_DATA} />
