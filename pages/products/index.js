@@ -4,7 +4,7 @@ function ProductsPage() {
 
   return (
     <Fragment>
-      
+      products page
     </Fragment>
   )
 
