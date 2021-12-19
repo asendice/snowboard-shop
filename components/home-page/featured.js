@@ -42,7 +42,6 @@ const DUMMY_DATA = [
 
 function Featured(props) {
   const { snowboards } = props;
-  console.log(props)
   return (
     <div className={classes.container}>
       <h2>Featured</h2>
