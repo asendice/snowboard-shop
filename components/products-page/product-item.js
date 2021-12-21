@@ -9,7 +9,7 @@ function ProductItem(props) {
       <p>{price}</p>
       <ul>
         {size.map((item) => (
-          <li>{item}cm</li>
+          <li key={item}>{item}cm</li>
         ))}
       </ul>
     </div>
