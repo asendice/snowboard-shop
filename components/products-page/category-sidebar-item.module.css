@@ -1,0 +1,46 @@
+.container {
+  border: solid 1px var(--color-black);
+  transition: all 1.4s ease;
+  position: relative;
+}
+
+.header {
+  padding: 1rem 2rem;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+}
+
+.header:hover {
+  background-color: #d3d3d3;
+}
+
+.activeList {
+  height: 0;
+  visibility: hidden;
+  list-style: none;
+  font-size: 1.5rem;
+  transition: all 0.6s;
+  transform: translateY(-2rem);
+  overflow: auto;
+}
+
+.nonActive {
+  height: 0;
+  visibility: hidden;
+}
+.active {
+  height: 200px;
+  visibility: visible;
+  transform: translateY(0%);
+}
+
+.activeList li {
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+.activeList li:hover {
+  background-color: #d2d2d2;
+}

@@ -14,8 +14,9 @@ function ProductsPage(props) {
 }
 
 export async function getStaticProps(){
-  const snowboards = await getAllSnowboards();
   //will probably also call getAllClothes and getAllAccessories and mergin them here for products props
+  const snowboards = await getAllSnowboards();
+
   return {
     props: {
       products: snowboards

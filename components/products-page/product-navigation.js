@@ -3,7 +3,7 @@ import classes from "./product-navigation.module.css";
 function ProductNavigation() {
   return (
     <section className={classes.container}>
-      <div classNmae={classes.per}>
+      <div className={classes.per}>
         <p>Items Per Page: </p>
         <select>
           <option>10</option>
@@ -11,7 +11,7 @@ function ProductNavigation() {
           <option>30</option>
         </select>
       </div>
-      <div classNmae={classes.per}>
+      <div className={classes.per}>
         <p>Sort:</p>
         <select>
           <option>10</option>

@@ -1,13 +1,14 @@
 import classes from "./category-sidebar.module.css";
+import CategorySidebarItem from "./category-sidebar-item";
 
-function CategorySideBar(props) {
+function CategorySidebar(props) {
   const { categories } = props;
   return (
     <ul className={classes.container}>
       {categories.map((category) => (
-        <li>{category}</li>
+        <CategorySidebarItem key={category.category} category={category} />
       ))}
     </ul>
   );
 }
-export default CategorySideBar;
+export default CategorySidebar;
