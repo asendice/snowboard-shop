@@ -10,9 +10,9 @@
 .title {
   display: block;
   margin-top: 25rem;
-  padding: 1px;
+  padding: 2rem 2rem;
   color: var(--color-white);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   cursor: pointer;
   position: relative;
 }

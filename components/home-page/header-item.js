@@ -6,12 +6,12 @@ function HeaderItem(props) {
     <li
       className={classes.container}
       style={{
-        backgroundImage: `linear-gradient(to right bottom,rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url(${item.image})`,
+        backgroundImage: `linear-gradient(to right bottom,rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)),url(${item.image})`,
       }}
     >
-      <span className={classes.title}>
+      <div className={classes.title}>
         <p>{item.title}</p>
-      </span>
+      </div>
     </li>
   );
 }
