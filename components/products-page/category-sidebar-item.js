@@ -12,7 +12,7 @@ function CategorySidebarItem(props) {
       </h4>
 
       <ul className={`${classes.activeList} ${active === true ? classes.active : classes.nonActive}`}>
-        {options.map((option) => (
+        {options.sort().map((option) => (
           <li className={ `${props.filters.includes(option) ? classes.filtered : "" }`} key={option} onClick={() => props.updateFilters(option)}>
             {option}
           </li>

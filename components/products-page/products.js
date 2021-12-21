@@ -7,7 +7,6 @@ import ProductGrid from "./product-grid";
 function Products(props) {
   const [filters, setFilters] = useState([]);
   
-  console.log(filters)
   function updateFilters(filter) {
     if (filters.includes(filter)) {
       setFilters(filters.filter((item) => item !== filter));
@@ -44,7 +43,7 @@ function Products(props) {
         filters={filters}
       />
       <ProductNavigation />
-      <ProductGrid />
+      <ProductGrid products={props.products}/>
     </section>
   );
 }
