@@ -16,6 +16,10 @@
   background-color: #d3d3d3;
 }
 
+.filtered {
+  background-color: #d3d3d3;
+}
+
 .activeList {
   height: 0;
   visibility: hidden;

@@ -1,9 +1,20 @@
+import { useState } from "react";
 import classes from "./products.module.css";
 import CategorySidebar from "./category-sidebar";
 import ProductNavigation from "./product-navigation";
 import ProductGrid from "./product-grid";
 
 function Products(props) {
+  const [filters, setFilters] = useState([]);
+  
+  console.log(filters)
+  function updateFilters(filter) {
+    if (filters.includes(filter)) {
+      setFilters(filters.filter((item) => item !== filter));
+    } else {
+      setFilters((filters) => [...filters, filter]);
+    }
+  }
 
   function SideBarCategories() {
     const categories = Object.keys(props.products[0]).filter(
@@ -27,7 +38,11 @@ function Products(props) {
 
   return (
     <section className={classes.container}>
-      <CategorySidebar categories={SideBarCategories()} />
+      <CategorySidebar
+        categories={SideBarCategories()}
+        updateFilters={updateFilters}
+        filters={filters}
+      />
       <ProductNavigation />
       <ProductGrid />
     </section>
