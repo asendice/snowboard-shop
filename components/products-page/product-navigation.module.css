@@ -9,9 +9,52 @@
 }
 
 .per {
+  width: 20rem;
+  background-color: var(--color-grey-light);
+  margin-left: 2rem;
+  position: relative;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  transition: all .4s;
+}
+
+.perHeader {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  background-color: pink;
-  width: 15rem;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.list {
+  width: 100%;
+  list-style: none;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  transition: all .4s;
+  transform: translateY(-1rem);
+  background-color: var(--color-white);
+  overflow-y: auto;
+  border: solid 1px var(--color-grey-light);
+}
+.list li {
+  padding: 1rem 2rem;
+}
+
+.list li:hover {
+  background-color: #d3d3d3;
+}
+
+.active {
+  height: 16rem;
+  visibility: visible;
+  transform: translateY(0rem);
+  opacity: 1;
+}
+
+.notActive {
+  visibility: hidden;
 }

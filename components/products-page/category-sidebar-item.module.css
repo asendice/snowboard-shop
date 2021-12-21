@@ -36,7 +36,7 @@
   visibility: hidden;
 }
 .active {
-  height: 200px;
+  height: 20rem;
   visibility: visible;
   transform: translateY(0%);
 }
