@@ -6,7 +6,7 @@ function ProductGrid(props) {
   return (
     <ul className={classes.container}>
       {products.map((product) => (
-        <ProductItem key={product} product={product} />
+        <ProductItem key={product.title} product={product} />
       ))}
     </ul>
   );
