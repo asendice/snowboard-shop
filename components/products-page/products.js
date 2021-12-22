@@ -11,11 +11,13 @@ function Products(props) {
   const [pages, setPages] = useState(1);
   const [activePage, setActivePage] = useState(1);
 
+  console.log(filters, "filters")
 
   function updateFilters(filter) {
-    const options = filters.map((item) => item.option)
+    const options = filters.map((item) => item.option);
+    console.log(filter.option)
     if (options.includes(filter.option)) {
-      setFilters(filters.filter((item) => item !== filter));
+      setFilters(filters.filter(item => item.option !== filter.option));
     } else {
       setFilters((filters) => [...filters, filter]);
     }
@@ -63,15 +65,14 @@ function Products(props) {
         (item) => item[category] === option || item[category].includes(option)
       );
     });
-    console.log(xdd, "xdd")
-    return xdd;
+    return xdd.flat();
   }
+  const filtered = filterProducts().length > 0 ? filterProducts() : props.products;
 
   function updateProducts() {
-    let filtered = filterProducts().length > 0 ? filterProducts()[0] : props.products;
-    let sorted = sortedBy.length > 0 ? sortProducts(filtered) : filtered;
-    let start = activePage === 1 ? 0 : itemsPerPage * (activePage - 1);
-    let end = start + itemsPerPage;
+    const sorted = sortedBy.length > 0 ? sortProducts(filtered) : filtered;
+    const start = activePage === 1 ? 0 : itemsPerPage * (activePage - 1);
+    const end = start + itemsPerPage;
     const xdd = sorted.slice(start, end);
     return xdd;
   }
@@ -87,8 +88,8 @@ function Products(props) {
   });
 
   useEffect(() => {
-    setPages(Math.ceil(props.products.length / itemsPerPage));
-  }, [sortedBy, activePage, props.products, itemsPerPage, setItemsPerPage]);
+    setPages(Math.ceil(filtered.length / itemsPerPage));
+  }, [sortedBy, activePage, props.products, itemsPerPage, setItemsPerPage, filters]);
 
   return (
     <section className={classes.container}>

@@ -20,7 +20,7 @@ function CategorySidebarItem(props) {
 
       <ul className={`${classes.activeList} ${active === true ? classes.active : classes.nonActive}`}>
         {options.sort().map((option) => (
-          <li key={option} className={ `${props.filters.includes(option) ? classes.filtered : "" }`}  onClick={() => sidebarItemHandler(option)}>
+          <li key={option} className={ `${props.filters.filter(item => item.option.includes(option)).length > 0 ? classes.filtered : "" }`}  onClick={() => sidebarItemHandler(option)}>
             {option}
           </li>
         ))}
