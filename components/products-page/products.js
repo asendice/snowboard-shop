@@ -42,7 +42,7 @@ function Products(props) {
 
   function updateProducts() {
     let sorted = sortedBy.length > 0 ? sortProducts(props.products) : props.products;
-    let start = activePage === 1 ? 1 : itemsPerPage * (activePage - 1);
+    let start = activePage === 1 ? 0 : itemsPerPage * (activePage - 1);
     let end = start + itemsPerPage;
     const xdd = sorted.slice(start, end);
     return xdd;
