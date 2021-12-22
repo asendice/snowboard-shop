@@ -11,13 +11,12 @@ function Products(props) {
   const [pages, setPages] = useState(1);
   const [activePage, setActivePage] = useState(1);
 
-  console.log(filters, "filters")
+  console.log(activePage)
 
   function updateFilters(filter) {
     const options = filters.map((item) => item.option);
-    console.log(filter.option)
     if (options.includes(filter.option)) {
-      setFilters(filters.filter(item => item.option !== filter.option));
+      setFilters(filters.filter((item) => item.option !== filter.option));
     } else {
       setFilters((filters) => [...filters, filter]);
     }
@@ -59,15 +58,20 @@ function Products(props) {
   }
 
   function filterProducts() {
-    const xdd = filters.map((filter) => {
-      const { category, option } = filter;
-      return props.products.filter(
-        (item) => item[category] === option || item[category].includes(option)
-      );
+    const filteredProducts = props.products.filter((product) => {
+      const doesInclude = filters.every((element) => {
+        const { category, option } = element;
+        return (
+          product[category] === option || product[category].includes(option)
+        );
+      });
+      return doesInclude;
     });
-    return xdd.flat();
+    return filteredProducts;
   }
-  const filtered = filterProducts().length > 0 ? filterProducts() : props.products;
+
+  const filtered =
+    filterProducts().length > 0 ? filterProducts() : [];
 
   function updateProducts() {
     const sorted = sortedBy.length > 0 ? sortProducts(filtered) : filtered;
@@ -82,14 +86,21 @@ function Products(props) {
   }, [sortedBy, activePage, itemsPerPage, filters]);
 
   useEffect(() => {
-    if (activePage > pages) {
+    if (activePage > pages || activePage === 0) {
       setActivePage(pages);
     }
   });
 
   useEffect(() => {
     setPages(Math.ceil(filtered.length / itemsPerPage));
-  }, [sortedBy, activePage, props.products, itemsPerPage, setItemsPerPage, filters]);
+  }, [
+    sortedBy,
+    activePage,
+    props.products,
+    itemsPerPage,
+    setItemsPerPage,
+    filters,
+  ]);
 
   return (
     <section className={classes.container}>
