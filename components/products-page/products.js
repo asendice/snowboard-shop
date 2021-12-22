@@ -11,6 +11,7 @@ function Products(props) {
   const [pages, setPages] = useState(1);
   const [activePage, setActivePage] = useState(1);
 
+
   function updateFilters(filter) {
     if (filters.includes(filter)) {
       setFilters(filters.filter((item) => item !== filter));
@@ -40,18 +41,37 @@ function Products(props) {
   }
 
   function updateProducts() {
+    let sorted = sortedBy.length > 0 ? sortProducts(props.products) : props.products;
     let start = activePage === 1 ? 1 : itemsPerPage * (activePage - 1);
     let end = start + itemsPerPage;
-    const xdd = props.products.slice(start, end);
+    const xdd = sorted.slice(start, end);
     return xdd;
   }
 
+  function sortProducts(products) {
+    if(sortedBy === "Name: A-Z"){
+      return products.sort((a, b) => a.title.localeCompare(b.title));
+    }
+    if(sortedBy === "Name: Z-A"){
+      return products.sort((a, b) => b.title.localeCompare(a.title));
+    }
+    if(sortedBy === "Price: Low-High"){
+      return products.sort((a, b) => a.price - b.price);
+    }
+    if(sortedBy === "Price: High-Low"){
+      return products.sort((a, b) => b.price - a.price);
+    }
+  }
+
   useEffect(() => {
-    setPages(Math.ceil(props.products.length / itemsPerPage));
     if(activePage > pages){
       setActivePage(pages);
     }
-  }, [sortedBy, activePage, props.products, itemsPerPage]);
+  })
+
+  useEffect(() => {
+    setPages(Math.ceil(props.products.length / itemsPerPage));
+  }, [sortedBy, activePage, props.products, itemsPerPage, setItemsPerPage]);
 
   return (
     <section className={classes.container}>
@@ -66,6 +86,8 @@ function Products(props) {
         setActivePage={setActivePage}
         itemsPerPage={itemsPerPage}
         setItemsPerPage={setItemsPerPage}
+        sortedBy={sortedBy}
+        setSortedBy={setSortedBy}
       />
       <ProductGrid products={updateProducts()} />
     </section>

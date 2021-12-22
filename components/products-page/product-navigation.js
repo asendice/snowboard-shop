@@ -12,9 +12,9 @@ function ProductNavigation(props) {
   const [itemActive, setItemActive] = useState(false);
   const [sortActive, setSortActive] = useState(false);
 
-  const { pages, activePage, setActivePage, setItemsPerPage, itemsPerPage } = props;
+  const { pages, activePage, setActivePage, setItemsPerPage, itemsPerPage, sortedBy, setSortedBy } = props;
 
-  const itemsPer = [20, 30];
+  const itemsPer = [20, 30, 40];
   const sortBy = [
     "Name: A-Z",
     "Name: Z-A",
@@ -61,7 +61,7 @@ function ProductNavigation(props) {
       </div>
       <div className={classes.per} onClick={() => setSortActive(!sortActive)}>
         <div className={classes.perHeader}>
-          <p>Sort</p> <BsFillCaretDownFill />
+          <p>Sort: {sortedBy}</p> <BsFillCaretDownFill />
         </div>
         <ul
           className={` ${classes.list} ${
@@ -69,7 +69,7 @@ function ProductNavigation(props) {
           }`}
         >
           {sortBy.map((sort) => (
-            <li key={sort}>{sort}</li>
+            <li key={sort} onClick={() => setSortedBy(sort)}>{sort}</li>
           ))}
         </ul>
       </div>
