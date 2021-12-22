@@ -5,6 +5,13 @@ function CategorySidebarItem(props) {
   const [active, setActive] = useState(false);
   const { category, options } = props.category;
 
+  function sidebarItemHandler(option) {
+    props.updateFilters({
+      category: category,
+      option: option
+    })
+  }
+
   return (
     <li className={classes.container}>
       <h4 className={classes.header} onClick={() => setActive(!active)}>
@@ -13,7 +20,7 @@ function CategorySidebarItem(props) {
 
       <ul className={`${classes.activeList} ${active === true ? classes.active : classes.nonActive}`}>
         {options.sort().map((option) => (
-          <li key={option} className={ `${props.filters.includes(option) ? classes.filtered : "" }`}  onClick={() => props.updateFilters(option)}>
+          <li key={option} className={ `${props.filters.includes(option) ? classes.filtered : "" }`}  onClick={() => sidebarItemHandler(option)}>
             {option}
           </li>
         ))}
