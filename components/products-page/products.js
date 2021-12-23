@@ -11,15 +11,44 @@ function Products(props) {
   const [pages, setPages] = useState(1);
   const [activePage, setActivePage] = useState(1);
 
-  console.log(activePage)
+  console.log(filters, "filters");
+
+  // If we are going to continue with this logic we need a way to remove filter.option from array when there is one,
+  // or remove the object entirely if filter.option is the single element in the array
 
   function updateFilters(filter) {
     const options = filters.map((item) => item.option);
-    if (options.includes(filter.option)) {
-      setFilters(filters.filter((item) => item.option !== filter.option));
-    } else {
-      setFilters((filters) => [...filters, filter]);
+    const categories = filters.map((item) => item.category);
+    // here
+    if (options.flat().includes(filter.option)) {
+      setFilters(
+        filters.filter((item) => !item.option.includes(filter.option))
+      );
+      return;
     }
+    //
+    if (categories.includes(filter.category)) {
+      const filteredItem = filters.filter(
+        (item) => item.category === filter.category
+      );
+      const add = filteredItem.map((item) => {
+        return {
+          category: item.category,
+          option:
+            typeof(item.option) === "string"
+              ? [filter.option, ...[item.option]]
+              : [filter.option, ...item.option],
+        };
+      });
+      const filteredArray = filters.filter(
+        (item) => item.category !== filter.category
+      );
+      setFilters([add[0], ...filteredArray]);
+
+      return;
+    }
+
+    setFilters((filters) => [...filters, filter]);
   }
 
   function SideBarCategories() {
@@ -61,17 +90,14 @@ function Products(props) {
     const filteredProducts = props.products.filter((product) => {
       const doesInclude = filters.every((element) => {
         const { category, option } = element;
-        return (
-          product[category] === option || product[category].includes(option)
-        );
+        return option.includes(product[category]);
       });
       return doesInclude;
     });
     return filteredProducts;
   }
 
-  const filtered =
-    filterProducts().length > 0 ? filterProducts() : [];
+  const filtered = filterProducts().length > 0 ? filterProducts() : [];
 
   function updateProducts() {
     const sorted = sortedBy.length > 0 ? sortProducts(filtered) : filtered;

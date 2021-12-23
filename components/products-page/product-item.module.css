@@ -9,6 +9,7 @@
   transition: all 0.4s;
   animation: fadeIn 0.3s;
   height: 41rem;
+  width: 28rem;
 }
 
 @keyframes fadeIn {
