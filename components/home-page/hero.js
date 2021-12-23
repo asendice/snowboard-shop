@@ -6,7 +6,7 @@ function Hero() {
   return (
     <div className={classes.container}>
       <h1>Shred down the mountains with the best gear</h1>
-        <CtaButton link={"/products"}> Learn More </CtaButton>
+        <CtaButton link={"/products"}> Shop The Best </CtaButton>
     </div>
   );
 }
