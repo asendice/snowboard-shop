@@ -13,41 +13,39 @@ function Products(props) {
 
   console.log(filters, "filters");
 
-  // If we are going to continue with this logic we need a way to remove filter.option from array when there is one,
-  // or remove the object entirely if filter.option is the single element in the array
-
   function updateFilters(filter) {
     const options = filters.map((item) => item.option);
     const categories = filters.map((item) => item.category);
-    // here
+    const filteredItem = filters.filter(
+      (item) => item.category === filter.category
+    )[0];
+    const filteredOut = filters.filter(
+      (item) => item.category !== filter.category
+    );
+
     if (options.flat().includes(filter.option)) {
-      setFilters(
-        filters.filter((item) => !item.option.includes(filter.option))
-      );
+      const itemChanged = {
+        category: filteredItem.category,
+        option: options.flat().filter((opt) => opt !== filter.option),
+      };
+      if (itemChanged.option.length === 0) {
+        setFilters([...filteredOut]);
+        return;
+      }
+      setFilters([itemChanged, ...filteredOut]);
       return;
     }
-    //
     if (categories.includes(filter.category)) {
-      const filteredItem = filters.filter(
-        (item) => item.category === filter.category
-      );
-      const add = filteredItem.map((item) => {
-        return {
-          category: item.category,
-          option:
-            typeof(item.option) === "string"
-              ? [filter.option, ...[item.option]]
-              : [filter.option, ...item.option],
-        };
-      });
-      const filteredArray = filters.filter(
-        (item) => item.category !== filter.category
-      );
-      setFilters([add[0], ...filteredArray]);
-
+      const add = {
+        category: filteredItem.category,
+        option:
+          typeof filteredItem.option === "string"
+            ? [filter.option, ...[filteredItem.option]]
+            : [filter.option, ...filteredItem.option],
+      };
+      setFilters([add, ...filteredOut]);
       return;
     }
-
     setFilters((filters) => [...filters, filter]);
   }
 
@@ -90,14 +88,18 @@ function Products(props) {
     const filteredProducts = props.products.filter((product) => {
       const doesInclude = filters.every((element) => {
         const { category, option } = element;
-        return option.includes(product[category]);
+        if (typeof product[category] === "string") {
+          return option.includes(product[category]);
+        } else {
+          return product[category].map((item) => option.includes(item)).includes(true);
+        }
       });
       return doesInclude;
     });
     return filteredProducts;
   }
 
-  const filtered = filterProducts().length > 0 ? filterProducts() : [];
+  const filtered = filterProducts();
 
   function updateProducts() {
     const sorted = sortedBy.length > 0 ? sortProducts(filtered) : filtered;
