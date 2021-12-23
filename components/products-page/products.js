@@ -3,6 +3,7 @@ import classes from "./products.module.css";
 import CategorySidebar from "./category-sidebar";
 import ProductNavigation from "./product-navigation";
 import ProductGrid from "./product-grid";
+import PageNavigator from "./page-navigatior";
 
 function Products(props) {
   const [filters, setFilters] = useState([]);
@@ -91,7 +92,9 @@ function Products(props) {
         if (typeof product[category] === "string") {
           return option.includes(product[category]);
         } else {
-          return product[category].map((item) => option.includes(item)).includes(true);
+          return product[category]
+            .map((item) => option.includes(item))
+            .includes(true);
         }
       });
       return doesInclude;
@@ -147,6 +150,14 @@ function Products(props) {
         setSortedBy={setSortedBy}
       />
       <ProductGrid products={updateProducts()} />
+      <div className={classes.pageNav}>
+
+      <PageNavigator
+        pages={pages}
+        activePage={activePage}
+        setActivePage={setActivePage}
+      />
+      </div>
     </section>
   );
 }

@@ -4,7 +4,7 @@
   height: 10vh;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   grid-column: 2 / 6;
 }
 
@@ -59,20 +59,3 @@
   visibility: hidden;
 }
 
-.pages {
-  width: 30rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  font-size: 2.5rem;
-}
-.pageIcon {
-  display: flex;
-  padding: .7rem;
-  background-color: var(--color-grey-light);
-  cursor: pointer;
-}
-
-.pageNumber {
-  cursor: pointer;
-}
