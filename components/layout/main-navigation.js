@@ -1,13 +1,16 @@
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
 import SearchBar from "../ui/search-bar";
-import {BsCart3} from "react-icons/bs";
-
+import { BsCart3 } from "react-icons/bs";
 
 function MainNavigation() {
   return (
     <div className={classes.container}>
-      <h1>Snowboard-Shop</h1>
+      <Link href="/">
+        <a>
+          <h1>Snowboard-Shop</h1>
+        </a>
+      </Link>
       <ul className={classes.nav}>
         <li>
           <Link href="/">Snowboarding</Link>
@@ -32,7 +35,7 @@ function MainNavigation() {
         <div className={classes.line3}></div>
       </div>
     </div>
-  )
+  );
 }
 
 export default MainNavigation;
