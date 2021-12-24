@@ -1,7 +1,7 @@
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
 import SearchBar from "../ui/search-bar";
-import { BsCart3 } from "react-icons/bs";
+import ShoppingCart from "../ui/shopping-cart";
 
 function MainNavigation() {
   return (
@@ -27,8 +27,8 @@ function MainNavigation() {
       </ul>
       <div className={classes.actions}>
         <SearchBar placeholder="Search Snowboard-Shop" />
-        <BsCart3 className={classes.icon} />
       </div>
+      <ShoppingCart />
       <div className={classes.burger}>
         <div className={classes.line1}></div>
         <div className={classes.line2}></div>

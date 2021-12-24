@@ -1,0 +1,35 @@
+.scrolled {
+  position: sticky;
+  top: 2rem;
+  right: 5rem;
+  left: 95%;
+  z-index: 10;
+  color: #fff;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .4s;
+}
+
+.container, .scrolled{
+  height: 6rem;
+  width: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border-radius: 100%;
+  padding: 1rem;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.scrolled:active, .scrolled:focus {
+  opacity: 0.8;
+  top: 2.4rem;
+}

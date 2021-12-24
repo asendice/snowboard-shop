@@ -2,11 +2,12 @@
   min-height: 80vh;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 10vh 1fr;
+  grid-template-rows: 3vh 10vh 1fr;
 }
 
 .pageNav {
   grid-column: 3;
+  grid-row-start: 4;
   width: 100%;
   margin: 2rem 0;
 }
