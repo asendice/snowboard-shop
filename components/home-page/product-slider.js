@@ -47,8 +47,8 @@ function ProductSlider(props) {
           }}
         >
           {items.map((item) => (
-            <SwiperSlide key={item._id}>
-              <Product item={item} />
+            <SwiperSlide key={item._id} >
+              <Product key={item.title} item={item} />
             </SwiperSlide>
           ))}
         </Swiper>

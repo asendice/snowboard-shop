@@ -7,7 +7,7 @@ function Groups(props) {
   return (
     <ul className={classes.container}>
       {groups.map((group) => (
-        <GroupItem item={group} />
+        <GroupItem key={group.title} item={group} />
       ))}
     </ul>
   );
