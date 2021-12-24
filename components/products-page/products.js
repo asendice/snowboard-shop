@@ -5,6 +5,7 @@ import ProductNavigation from "./product-navigation";
 import ProductGrid from "./product-grid";
 import PageNavigator from "./page-navigatior";
 import ShoppingCart from "../ui/shopping-cart";
+import CartList from "../ui/cart-list";
 
 function Products(props) {
   const [filters, setFilters] = useState([]);
@@ -13,7 +14,6 @@ function Products(props) {
   const [pages, setPages] = useState(1);
   const [activePage, setActivePage] = useState(1);
   const [listActive, setListActive] = useState(false);
-
 
   function updateFilters(filter) {
     const options = filters.map((item) => item.option);
@@ -136,7 +136,7 @@ function Products(props) {
 
   return (
     <section className={classes.container}>
-    <ShoppingCart scroll={true} setActive={setListActive}/>
+      <ShoppingCart scroll={true} setActive={setListActive} />
       <CategorySidebar
         categories={SideBarCategories()}
         updateFilters={updateFilters}
@@ -153,12 +153,13 @@ function Products(props) {
       />
       <ProductGrid products={updateProducts()} />
       <div className={classes.pageNav}>
-      <PageNavigator
-        pages={pages}
-        activePage={activePage}
-        setActivePage={setActivePage}
-      />
+        <PageNavigator
+          pages={pages}
+          activePage={activePage}
+          setActivePage={setActivePage}
+        />
       </div>
+      {listActive && <CartList />}
     </section>
   );
 }
