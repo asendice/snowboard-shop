@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BsFillCaretDownFill } from "react-icons/bs";
+import Breadcrumb from "../ui/breadcrumb";
 import PageNavigator from "./page-navigatior";
 import classes from "./product-navigation.module.css";
 
@@ -27,6 +28,7 @@ function ProductNavigation(props) {
 
   return (
     <section className={classes.container}>
+      <Breadcrumb />
       <div className={classes.per} onClick={() => setItemActive(!itemActive)}>
         <div className={classes.perHeader}>
           <p>Items Per Page: {itemsPerPage}</p> <BsFillCaretDownFill />
