@@ -1,0 +1,17 @@
+.container {
+  list-style: none;
+  height: 90vh;
+  padding: 10rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.item {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: top;
+  display: flex;
+  align-items: center;
+}

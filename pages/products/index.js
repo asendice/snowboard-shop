@@ -1,28 +1,33 @@
-import { Fragment } from "react";
-import Products from "../../components/products-page/products";
-import { getAllSnowboards } from "../../helpers/api-utils";
+import Groups from "../../components/ui/groups";
 
-function ProductsPage(props) {
-  const { products } = props;
+function ProductsPage(props){
 
   return (
-    <Fragment>
-      <Products products={products} />
-    </Fragment>
+    <Groups groups={props.groups} />
   )
-
 }
 
 export async function getStaticProps(){
-  //will probably also call getAllClothes and getAllAccessories and mergin them here for products props
-  const snowboards = await getAllSnowboards();
-
+  const groups = [
+    {
+      title: 'Snowboards',
+      image: '/images/snowboards.webp'  
+    },
+    {
+      title: 'Clothes',
+      image: '/images/clothes.jpeg'  
+    },
+    {
+      title: 'Accessories',
+      image: '/images/accessories.jpeg'  
+    },
+  
+  ]
   return {
-    props: {
-      products: snowboards
+    props : {
+      groups: groups
     }
   }
-  
 }
 
 export default ProductsPage;

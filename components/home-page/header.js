@@ -1,5 +1,5 @@
 import classes from "./header.module.css";
-import HeaderItem from "./header-item";
+import Groups from "../ui/groups";
 
 const DUMMY_DATA = [
   {
@@ -20,11 +20,7 @@ function Header() {
   return (
     <div className={classes.container}>
       <h2>Newest Arrivals For The Winter Season</h2>
-      <ul className={classes.list}>
-        {DUMMY_DATA.map((item) => (
-          <HeaderItem key={item.title} item={item} />
-        ))}
-      </ul>
+      <Groups groups={DUMMY_DATA} />
     </div>
   );
 }
