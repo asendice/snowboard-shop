@@ -2,8 +2,11 @@ import {
   getSnowboard,
   getFeaturedSnowboards,
 } from "../../../helpers/api-utils";
+import ProductDetail from "../../../components/product/product-detail";
 function ProductDetailPage(props) {
-  return <div>asdas</div>;
+  return (
+    <ProductDetail product={props.product[0]} />
+  )
 }
 
 export async function getStaticProps(context) {

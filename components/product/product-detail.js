@@ -13,6 +13,12 @@ function ProductDetail (props) {
       <div className={classes.image}>
         <ProductImage img={product.images}/>
       </div>
+      <div className={classes.title}> 
+        <h3>{product.title}</h3>
+      </div>
+      <div className={classes.price}> 
+        <h3>${product.price}</h3>
+      </div>
     </section>
   )
 }

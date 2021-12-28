@@ -5,10 +5,7 @@ import { BsArrowRight } from "react-icons/bs";
 
 function Breadcrumb() {
   const router = useRouter();
-  const crumb = router.asPath
-    .split("/")
-    .filter((crumb) => crumb.length > 0)[1];
-
+  const crumb = router.asPath.split("/").filter((crumb) => crumb.length > 0);
   return (
     <ul className={classes.list}>
       <li>
@@ -17,9 +14,15 @@ function Breadcrumb() {
       <li>
         <Link href="/products">products</Link>
       </li>
-      <li>
-        <Link href={`/products/${crumb}`}>{crumb}</Link>
-      </li>
+      {crumb.slice(1).map((crb) => {
+        let crumble = crb.replaceAll('%', ' ')
+        return (
+          <li>
+            <Link href={`/products/${crb}`}>{crumble}</Link>
+          </li>
+        );
+      })}
+      <li></li>
     </ul>
   );
 }
