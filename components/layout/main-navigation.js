@@ -1,7 +1,7 @@
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
 import SearchBar from "../ui/search-bar";
-import ShoppingCart from "../ui/shopping-cart";
+import ShoppingCartBtn from "../ui/shopping-cart-btn";
 
 function MainNavigation() {
   return (
@@ -28,7 +28,7 @@ function MainNavigation() {
       <div className={classes.actions}>
         <SearchBar placeholder="Search Snowboard-Shop" />
       </div>
-      <ShoppingCart />
+      <ShoppingCartBtn />
       <div className={classes.burger}>
         <div className={classes.line1}></div>
         <div className={classes.line2}></div>

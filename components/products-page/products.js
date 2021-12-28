@@ -4,8 +4,8 @@ import CategorySidebar from "./category-sidebar";
 import ProductNavigation from "./product-navigation";
 import ProductGrid from "./product-grid";
 import PageNavigator from "./page-navigatior";
+import ShoppingCartBtn from "../ui/shopping-cart-btn";
 import ShoppingCart from "../ui/shopping-cart";
-import CartList from "../ui/cart-list";
 
 function Products(props) {
   const [filters, setFilters] = useState([]);
@@ -144,7 +144,7 @@ function Products(props) {
 
   return (
     <section className={classes.container}>
-      <ShoppingCart scroll={true} setActive={setListActive} />
+      <ShoppingCartBtn scroll={true} setActive={setListActive} />
       <CategorySidebar
         categories={SideBarCategories()}
         updateFilters={updateFilters}
@@ -167,7 +167,7 @@ function Products(props) {
           setActivePage={setActivePage}
         />
       </div>
-      {listActive && <CartList />}
+      {listActive && <ShoppingCart setActive={setListActive} />}
     </section>
   );
 }
