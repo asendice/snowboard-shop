@@ -134,6 +134,14 @@ function Products(props) {
     filters,
   ]);
 
+  useEffect(() => {
+    if(listActive === true){
+      document.body.style.overflow = "hidden";
+    }else {
+      document.body.style.overflow = "auto";
+    }
+  },[listActive])
+
   return (
     <section className={classes.container}>
       <ShoppingCart scroll={true} setActive={setListActive} />
