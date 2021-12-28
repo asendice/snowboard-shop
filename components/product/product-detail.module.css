@@ -1,0 +1,17 @@
+.container {
+  height: 90vh;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.breadcrumb {
+  grid-row: 0 / 1;
+  grid-column: 1 / 4;
+}
+
+.image {
+  grid-column: 2 / 4;
+  grid-row: 2 / 6;
+}
+
