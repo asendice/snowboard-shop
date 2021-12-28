@@ -7,3 +7,8 @@ export async function getFeaturedSnowboards() {
   const boards = await getAllSnowboards();
   return boards.filter((board) => board.featured === true);
 }
+
+export async function getSnowboard(title) {
+  const boards = await  getAllSnowboards();
+  return boards.filter((board) => board.title === title)
+}

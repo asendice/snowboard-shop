@@ -5,7 +5,7 @@ import { BsArrowRight } from "react-icons/bs";
 
 function Breadcrumb() {
   const router = useRouter();
-  const crumb = router.pathname
+  const crumb = router.asPath
     .split("/")
     .filter((crumb) => crumb.length > 0)[1];
 
