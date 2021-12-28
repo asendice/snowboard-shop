@@ -3,11 +3,11 @@ import Products from "../../../components/products-page/products";
 import { getAllSnowboards } from "../../../helpers/api-utils";
 
 function ProductsPage(props) {
-  const { products } = props;
+  const { products, category } = props;
 
   return (
     <Fragment>
-      <Products products={products} />
+      <Products products={products} category={category}/>
     </Fragment>
   );
 }
@@ -22,6 +22,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       products: products,
+      category: category
     },
   };
 }

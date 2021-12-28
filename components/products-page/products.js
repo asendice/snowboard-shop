@@ -159,7 +159,7 @@ function Products(props) {
         sortedBy={sortedBy}
         setSortedBy={setSortedBy}
       />
-      <ProductGrid products={updateProducts()} />
+      <ProductGrid products={updateProducts()} category={props.category} />
       <div className={classes.pageNav}>
         <PageNavigator
           pages={pages}

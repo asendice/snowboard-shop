@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 function ProductSlider(props) {
-  const { items } = props;
+  const { items, category } = props;
 
   return (
     <Fragment>
@@ -48,7 +48,7 @@ function ProductSlider(props) {
         >
           {items.map((item) => (
             <SwiperSlide key={item._id} >
-              <Product key={item.title} item={item} />
+              <Product key={item.title} item={item} category={category} />
             </SwiperSlide>
           ))}
         </Swiper>
