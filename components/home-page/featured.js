@@ -48,7 +48,7 @@ function Featured(props) {
       <h3>Snowboards</h3>
       <ProductSlider items={snowboards} category={'snowboards'}/>
       <h3>Clothes</h3>
-      <ProductSlider items={DUMMY_DATA} />
+      {/* <ProductSlider items={DUMMY_DATA} /> */}
     </div>
   )
 }

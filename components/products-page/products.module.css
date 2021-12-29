@@ -2,7 +2,7 @@
   min-height: 80vh;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 5vh 10vh 1fr;
+  grid-template-rows: 3vh 7vh 1fr;
 }
 
 .pageNav {
@@ -16,4 +16,6 @@
   grid-row: 0 / 1;
   grid-column: 0 / 4;
   padding: 2rem;
+  display: flex;
+  align-items: center;
 }
