@@ -6,6 +6,9 @@ import { BsArrowRight } from "react-icons/bs";
 function Breadcrumb() {
   const router = useRouter();
   const crumb = router.asPath.split("/").filter((crumb) => crumb.length > 0);
+  function editCrumb(crumble) {
+    return crumble.replaceAll('%', '').replaceAll('20', ' ')
+  }
   return (
     <ul className={classes.list}>
       <li>
@@ -15,10 +18,9 @@ function Breadcrumb() {
         <Link href="/products">products</Link>
       </li>
       {crumb.slice(1).map((crb) => {
-        let crumble = crb.replaceAll('%', ' ')
         return (
           <li>
-            <Link href={`/products/${crb}`}>{crumble}</Link>
+            <Link href={`/products/${crb}`}>{editCrumb(crb)}</Link>
           </li>
         );
       })}
