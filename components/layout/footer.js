@@ -5,7 +5,6 @@ function Footer() {
   return (
     <div className={classes.container}>
       <div className={classes.connect}>
-        <p>Conect with us</p>
         <div className={classes.socials}>
           <BsTwitter className={classes.icon}/>
           <BsYoutube className={classes.icon}/>
