@@ -2,7 +2,7 @@
   height: 90vh;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(8, 1fr);
   color: #444;
 }
 
@@ -14,17 +14,9 @@
 
 .image {
   grid-column: 2 / 4;
-  grid-row: 2 / 6;
+  grid-row: 2 / 8;
 }
-
-.title { 
-  padding: 2rem;
-  grid-column: 4 / 7;
+.info {
+  grid-column: 4 / 6;
   grid-row: 2 / 6;
-}
-
-.price {
-  padding: 0 2rem;
-  grid-column: 4 / 7;
-  grid-row: 3 / 6;
 }
