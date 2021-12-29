@@ -3,6 +3,7 @@ import Breadcrumb from "../ui/breadcrumb";
 import ProductImage from "./product-image";
 import ProductInfo from "./product-info";
 import ProductSpecs from "./product-specs";
+import ProductDescription from "./product-description";
 
 function ProductDetail (props) {
   const { product } = props;
@@ -19,6 +20,9 @@ function ProductDetail (props) {
       </div>
       <div className={classes.specs}>
         <ProductSpecs product={product} />
+      </div>
+      <div className={classes.desc}>
+        <ProductDescription />
       </div>
     </section>
   )
