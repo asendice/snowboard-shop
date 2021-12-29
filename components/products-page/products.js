@@ -5,7 +5,6 @@ import ProductNavigation from "./product-navigation";
 import ProductGrid from "./product-grid";
 import PageNavigator from "./page-navigatior";
 import ShoppingCartBtn from "../ui/shopping-cart-btn";
-import ShoppingCart from "../ui/shopping-cart";
 import Breadcrumb from "../ui/breadcrumb";
 
 function Products(props) {
@@ -14,7 +13,6 @@ function Products(props) {
   const [sortedBy, setSortedBy] = useState("");
   const [pages, setPages] = useState(1);
   const [activePage, setActivePage] = useState(1);
-  const [listActive, setListActive] = useState(false);
 
   function updateFilters(filter) {
     const options = filters.map((item) => item.option);
@@ -135,20 +133,14 @@ function Products(props) {
     filters,
   ]);
 
-  useEffect(() => {
-    if(listActive === true){
-      document.body.style.overflow = "hidden";
-    }else {
-      document.body.style.overflow = "auto";
-    }
-  },[listActive])
+
 
   return (
     <section className={classes.container}>
       <div className={classes.breadcrumb}>
         <Breadcrumb />
       </div>
-      <ShoppingCartBtn scroll={true} setActive={setListActive} />
+      <ShoppingCartBtn scroll={true}/>
       <CategorySidebar
         categories={SideBarCategories()}
         updateFilters={updateFilters}
@@ -171,7 +163,7 @@ function Products(props) {
           setActivePage={setActivePage}
         />
       </div>
-      {listActive && <ShoppingCart setActive={setListActive} />}
+
     </section>
   );
 }

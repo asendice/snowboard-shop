@@ -1,9 +1,11 @@
+import { useState, useEffect } from "react";
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
 import SearchBar from "../ui/search-bar";
 import ShoppingCartBtn from "../ui/shopping-cart-btn";
 
 function MainNavigation() {
+
   return (
     <div className={classes.container}>
       <Link href="/">

@@ -1,9 +1,20 @@
 import { useState, useEffect } from "react";
 import { BsCart3 } from "react-icons/bs";
+import { Fragment } from "react/cjs/react.production.min";
 import classes from "./shopping-cart-btn.module.css";
+import ShoppingCart from "./shopping-cart";
 
 function ShoppingCartBtn(props) {
   const [scrollY, setScrollY] = useState(0);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    if (active === true) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [active]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,19 +27,29 @@ function ShoppingCartBtn(props) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-
-  },[])
+  }, []);
   if (props.scroll) {
     return (
-      <a onClick={() => props.setActive(true)} className={`${classes.scrolled} ${scrollY >= 100 ? classes.active: classes.notActive}`}>
-        <BsCart3 className={classes.icon} />
-      </a>
+      <Fragment>
+        <a
+          onClick={() => setActive(true)}
+          className={`${classes.scrolled} ${
+            scrollY >= 100 ? classes.active : classes.notActive
+          }`}
+        >
+          <BsCart3 className={classes.icon} />
+        </a>
+        {active && <ShoppingCart setActive={setActive} />}
+      </Fragment>
     );
   }
   return (
-    <div className={classes.container}>
-      <BsCart3 className={classes.icon} />
-    </div>
+    <Fragment>
+      <a onClick={() => setActive(true)} className={classes.container}>
+        <BsCart3 className={classes.icon} />
+      </a>
+      {active && <ShoppingCart setActive={setActive} />}
+    </Fragment>
   );
 }
 
