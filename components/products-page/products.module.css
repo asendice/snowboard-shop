@@ -15,7 +15,7 @@
 .breadcrumb {
   grid-row: 0 / 1;
   grid-column: 0 / 4;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
 }
