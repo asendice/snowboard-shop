@@ -19,7 +19,7 @@ function Breadcrumb() {
       </li>
       {crumb.slice(1).map((crb) => {
         return (
-          <li>
+          <li key={crb}>
             <Link href={`/products/${crb}`}>{editCrumb(crb)}</Link>
           </li>
         );

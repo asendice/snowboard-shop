@@ -15,7 +15,6 @@ function Products(props) {
   const [activePage, setActivePage] = useState(1);
 
   function updateFilters(filter) {
-    const options = filters.map((item) => item.option);
     const categories = filters.map((item) => item.category);
     const filteredItem = filters.filter(
       (item) => item.category === filter.category
@@ -24,10 +23,13 @@ function Products(props) {
       (item) => item.category !== filter.category
     );
 
-    if (options.flat().includes(filter.option)) {
+    if (filteredItem && filteredItem.option.includes(filter.option)) {
       const itemChanged = {
         category: filteredItem.category,
-        option: options.flat().filter((opt) => opt !== filter.option),
+        option:
+          typeof filteredItem.option === "string"
+            ? [filteredItem.option].filter((opt) => opt !== filter.option)
+            : filteredItem.option.filter((opt) => opt !== filter.option),
       };
       if (itemChanged.option.length === 0) {
         setFilters([...filteredOut]);
@@ -133,14 +135,12 @@ function Products(props) {
     filters,
   ]);
 
-
-
   return (
     <section className={classes.container}>
       <div className={classes.breadcrumb}>
         <Breadcrumb />
       </div>
-      <ShoppingCartBtn scroll={true}/>
+      <ShoppingCartBtn scroll={true} />
       <CategorySidebar
         categories={SideBarCategories()}
         updateFilters={updateFilters}
@@ -163,7 +163,6 @@ function Products(props) {
           setActivePage={setActivePage}
         />
       </div>
-
     </section>
   );
 }
