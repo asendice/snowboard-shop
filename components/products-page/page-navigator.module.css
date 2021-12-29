@@ -8,7 +8,7 @@
 .pageIcon {
   display: flex;
   padding: .7rem;
-  background-color: var(--color-grey-light);
+  background-color: #d3d3d3;
   cursor: pointer;
 }
 
