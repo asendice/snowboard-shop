@@ -45,10 +45,48 @@
 .activeList li {
   padding: 1rem 2rem;
   cursor: pointer;
-  transition: all .4s .2s;
-
+  transition: all 0.4s;
 }
 
 .activeList li:hover {
   background-color: #d2d2d2;
+}
+
+.qty {
+  margin: 3rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.qty input {
+  margin-left: 1rem;
+  width: 5rem;
+}
+
+.addToCart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color:#d3d3d3;
+  width: 22rem;
+  padding: 2rem 3rem;
+  border: solid 1px #777;
+  cursor: pointer;
+  transition: all .4s;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.addToCart:hover {
+  transform: translateY(-3px)
+}
+.addToCart:active {
+  transform: translateY(2px)
+}
+
+.addToCart h5 {
+  margin: 0;
+}
+
+.cartIcon {
+  font-size: 2rem;
 }

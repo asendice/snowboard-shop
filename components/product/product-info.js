@@ -1,6 +1,6 @@
 import { useState } from "react";
 import classes from "./product-info.module.css";
-import { BsCaretDown } from "react-icons/bs";
+import { BsCaretDown, BsCart3 } from "react-icons/bs";
 function ProductInfo(props) {
   const [ active, setActive ] = useState(false);
   const { title, price, size, brand } = props.product;
@@ -20,6 +20,14 @@ function ProductInfo(props) {
           ))}
         </ul>
       </div>
+      <div className={classes.qty}>
+        <h5>Qty: </h5>
+        <input type="number" min="1" max="9" />
+      </div>
+      <a className={classes.addToCart}>
+        <h5>Add To Cart</h5>
+        <BsCart3 className={classes.cartIcon}/>
+      </a>
     </div>
   );
 }
