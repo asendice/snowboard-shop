@@ -28,7 +28,6 @@ function ProductNavigation(props) {
 
   return (
     <section className={classes.container}>
-      <Breadcrumb />
       <div className={classes.per} onClick={() => setItemActive(!itemActive)}>
         <div className={classes.perHeader}>
           <p>Items Per Page: {itemsPerPage}</p> <BsFillCaretDownFill />

@@ -6,6 +6,7 @@ import ProductGrid from "./product-grid";
 import PageNavigator from "./page-navigatior";
 import ShoppingCartBtn from "../ui/shopping-cart-btn";
 import ShoppingCart from "../ui/shopping-cart";
+import Breadcrumb from "../ui/breadcrumb";
 
 function Products(props) {
   const [filters, setFilters] = useState([]);
@@ -144,6 +145,9 @@ function Products(props) {
 
   return (
     <section className={classes.container}>
+      <div className={classes.breadcrumb}>
+        <Breadcrumb />
+      </div>
       <ShoppingCartBtn scroll={true} setActive={setListActive} />
       <CategorySidebar
         categories={SideBarCategories()}
