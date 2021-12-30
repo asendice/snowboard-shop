@@ -12,9 +12,10 @@ function ProductInfo(props) {
       <div className={classes.price}>
         <h3>${price}</h3>
       </div>
+      <h5>Select a size: </h5>
       <ul className={classes.size}>
         {size.map((num) => (
-          <li>{num}cm</li>
+          <li key={num}>{num}cm</li>
         ))}
       </ul>
       <div className={classes.qty}>
