@@ -145,6 +145,7 @@ function Products(props) {
         categories={SideBarCategories()}
         updateFilters={updateFilters}
         filters={filters}
+        setFilters={setFilters}
       />
       <ProductNavigation
         pages={pages}

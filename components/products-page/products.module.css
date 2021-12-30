@@ -13,9 +13,25 @@
 }
 
 .breadcrumb {
-  grid-row: 0 / 1;
+  grid-row: 1/ 2;
   grid-column: 0 / 4;
   padding: 1rem;
   display: flex;
   align-items: center;
+}
+
+.filters {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  padding: 0px 2rem;
+  font-size: 1.4rem;
+}
+
+.filters a {
+  text-decoration: underline;
+  color: rgb(69, 162, 211)
 }

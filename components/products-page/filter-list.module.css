@@ -1,0 +1,14 @@
+.filters {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 0px 2rem;
+  font-size: 1.4rem;
+}
+
+.clear {
+  text-decoration: underline;
+  color: rgb(69, 162, 211)
+}
