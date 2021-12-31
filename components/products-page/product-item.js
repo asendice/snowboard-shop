@@ -5,16 +5,21 @@ function ProductItem(props) {
   const { images, title, price, size } = props.product;
   const router = useRouter();
   function onProductClick() {
-    router.push(`/products/${props.category}/${title}`)
+    router.push(`/products/${props.category}/${title}`);
   }
   return (
     <div onClick={onProductClick} className={classes.container}>
-      <img src={images} />
+      <div className={classes.imgContainer}>
+        <img src={images} />
+      </div>
       <h5>{title}</h5>
       <p>${price}</p>
       <ul>
-        {size.map((item) => (
+        {props.category === "snowboards" && size.map((item) => (
           <li key={item}>{item}cm</li>
+        ))}
+        {props.category === "clothes" && size.map((item) => (
+          <li key={item}>{item}</li>
         ))}
       </ul>
     </div>
