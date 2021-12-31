@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Products from "../../../components/products-page/products";
-import { getAllSnowboards } from "../../../helpers/api-utils";
+import { getAllSnowboards, getAllClothes } from "../../../helpers/api-utils";
 
 function ProductsPage(props) {
   const { products, category } = props;
@@ -17,6 +17,9 @@ export async function getStaticProps(context) {
   let products = [];
   if (category === "snowboards") {
     products = await getAllSnowboards();
+  }
+  if (category === "clothes") {
+    products = await getAllClothes();
   }
 
   return {
