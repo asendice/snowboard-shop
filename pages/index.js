@@ -2,25 +2,27 @@ import { Fragment } from "react/cjs/react.production.min";
 import Hero from "../components/home-page/hero";
 import Header from "../components/home-page/header";
 import Featured from "../components/home-page/featured";
-import { getFeaturedSnowboards } from "../helpers/api-utils";
+import { getFeaturedClothing, getFeaturedSnowboards } from "../helpers/api-utils";
 
 
 function HomePage(props) {
-  const { snowboards } = props;
+  const { snowboards, clothing} = props;
   return (
     <Fragment> 
       <Hero />
       <Header />
-      <Featured snowboards={snowboards} />
+      <Featured snowboards={snowboards} clothing={clothing} />
     </Fragment>
   )
 }
 
 export async function getStaticProps(){
-  const featured = await getFeaturedSnowboards();
+  const snowboards = await getFeaturedSnowboards();
+  const clothing = await getFeaturedClothing();
   return {
     props: {
-      snowboards: featured
+      snowboards: snowboards,
+      clothing: clothing,
     }
   }
 }

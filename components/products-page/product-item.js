@@ -11,7 +11,7 @@ function ProductItem(props) {
     <div onClick={onProductClick} className={classes.container}>
       <img src={images} />
       <h5>{title}</h5>
-      <p>{price}</p>
+      <p>${price}</p>
       <ul>
         {size.map((item) => (
           <li key={item}>{item}cm</li>

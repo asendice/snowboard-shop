@@ -41,14 +41,15 @@ const DUMMY_DATA = [
 ]
 
 function Featured(props) {
-  const { snowboards } = props;
+  const { snowboards, clothing } = props;
+  console.log(clothing, "clothing")
   return (
     <div className={classes.container}>
       <h2>Featured</h2>
       <h3>Snowboards</h3>
       <ProductSlider items={snowboards} category={'snowboards'}/>
       <h3>Clothes</h3>
-      {/* <ProductSlider items={DUMMY_DATA} /> */}
+      <ProductSlider items={clothing} />
     </div>
   )
 }

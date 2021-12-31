@@ -12,3 +12,17 @@ export async function getSnowboard(title) {
   const boards = await  getAllSnowboards();
   return boards.filter((board) => board.title === title)
 }
+export async function getAllClothes() {
+  const response = await fetch("http://localhost:3000/api/clothes");
+  const data = await response.json();
+  return data.clothes;
+}
+export async function getFeaturedClothing() {
+  const clothes = await getAllClothes();
+  return clothes.filter((item) => item.featured === true);
+}
+
+export async function getClothingItem(title) {
+  const clothes = await  getAllClothes();
+  return clothes.filter((item) => item.title === title)
+}
