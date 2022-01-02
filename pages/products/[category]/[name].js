@@ -6,7 +6,7 @@ import {
 } from "../../../helpers/api-utils";
 import ProductDetail from "../../../components/product/product-detail";
 function ProductDetailPage(props) {
-  return <ProductDetail product={props.product[0]} />;
+  return <ProductDetail product={props.product[0]} category={props.category} />;
 }
 
 export async function getStaticProps(context) {
@@ -24,6 +24,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       product: product,
+      category: category,
     },
   };
 }

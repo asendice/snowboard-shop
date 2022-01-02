@@ -1,9 +1,7 @@
-import { useState } from "react";
 import classes from "./product-info.module.css";
-import { BsCaretDown, BsCart3 } from "react-icons/bs";
+import { BsCart3 } from "react-icons/bs";
 function ProductInfo(props) {
-  const [ active, setActive ] = useState(false);
-  const { title, price, size, brand } = props.product;
+  const { title, price, size } = props.product;
   return (
     <div className={classes.container}>
       <div className={classes.title}>
@@ -14,9 +12,10 @@ function ProductInfo(props) {
       </div>
       <h5>Select a size: </h5>
       <ul className={classes.size}>
-        {size.map((num) => (
-          <li key={num}>{num}cm</li>
-        ))}
+        {props.category === "snowboards" &&
+          size.map((item) => <li key={item}>{item}cm</li>)}
+        {props.category === "clothes" &&
+          size.map((item) => <li key={item}>{item}</li>)}
       </ul>
       <div className={classes.qty}>
         <h5>Qty: </h5>
@@ -24,7 +23,7 @@ function ProductInfo(props) {
       </div>
       <a className={classes.addToCart}>
         <h5>Add To Cart</h5>
-        <BsCart3 className={classes.cartIcon}/>
+        <BsCart3 className={classes.cartIcon} />
       </a>
     </div>
   );

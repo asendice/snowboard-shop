@@ -2,7 +2,7 @@
   min-height: 90vh;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 3vh 70vh 50vh;
+  grid-template-rows: 3vh 70vh 70vh;
   row-gap: 5rem;
   color: #444;
 }

@@ -28,10 +28,10 @@ function ProductSpecs(props) {
           ))}
         </ul>
         <ul>
-          {filteredValues.map((type) => {
+          {filteredValues.map((type, index) => {
             const item = typeof type  === "string" ? type : type.join(', ');
             return (
-              <li className={classes.tableItem} key={type}>
+              <li className={classes.tableItem} key={index}>
                 {item}
               </li>
             );

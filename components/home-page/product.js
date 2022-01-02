@@ -6,18 +6,22 @@ function Product(props) {
 
   const router = useRouter();
   function onProductClick() {
-    router.push(`/products/${props.category}/${title}`)
+    router.push(`/products/${props.category}/${title}`);
   }
   return (
     <div className={classes.container}>
       <div className={classes.overlay}>
-        <a onClick={onProductClick}  className={classes.btn}> More Info </a>
+        <a onClick={onProductClick} className={classes.btn}>
+          More Info
+        </a>
       </div>
-      <img src={images} alt={title}/>
+      <div className={classes.imgContainer}>
+        <img src={images} alt={title} />
+      </div>
       <h4>{title}</h4>
       <p>${price}</p>
     </div>
-  )
+  );
 }
 
-export default Product; 
+export default Product;

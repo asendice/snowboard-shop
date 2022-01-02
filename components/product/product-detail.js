@@ -7,7 +7,7 @@ import ProductDescription from "./product-description";
 import ShoppingCartBtn from "../ui/shopping-cart-btn";
 
 function ProductDetail(props) {
-  const { product } = props;
+  const { product, category } = props;
   return (
     <section className={classes.container}>
       <div className={classes.breadcrumb}>
@@ -18,7 +18,7 @@ function ProductDetail(props) {
         <ProductImage img={product.images} />
       </div>
       <div className={classes.info}>
-        <ProductInfo product={product} />
+        <ProductInfo product={product} category={category} />
       </div>
       <div className={classes.specs}>
         <ProductSpecs product={product} />
