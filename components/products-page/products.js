@@ -23,7 +23,7 @@ function Products(props) {
       (item) => item.category !== filter.category
     );
 
-    if (filteredItem && filteredItem.option.includes(filter.option)) {
+    if (filteredItem && filteredItem.option === (filter.option) ) {
       const itemChanged = {
         category: filteredItem.category,
         option:

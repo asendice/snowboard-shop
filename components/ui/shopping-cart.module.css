@@ -17,7 +17,7 @@
   width: 30rem;
   background-color: #fff;
   color: black;
-  animation: slideIn .5s;
+  animation: slideIn .5s, slideOut .5s;
   animation-fill-mode: forwards;
   top: 5vh;
   right: 0;
@@ -34,6 +34,16 @@
     visibility: visible;
   }
 }
+/* @keyframes slideOut {
+  100% {
+    visibility: visible;
+    right: -10rem;
+  }
+  0% {
+    right: 2rem;
+    visibility: visible;
+  }
+} */
 
 .header {
   display: flex;
