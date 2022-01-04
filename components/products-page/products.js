@@ -23,7 +23,7 @@ function Products(props) {
       (item) => item.category !== filter.category
     );
 
-    if (filteredItem && filteredItem.option === (filter.option) ) {
+    if (filteredItem && filteredItem.option === (filter.option) || filteredItem && filteredItem.option.includes(filter.option) ) {
       const itemChanged = {
         category: filteredItem.category,
         option:
@@ -91,12 +91,10 @@ function Products(props) {
     const filteredProducts = props.products.filter((product) => {
       const doesInclude = filters.every((element) => {
         const { category, option } = element;
-        if (typeof product[category] === "string") {
-          return option.includes(product[category]);
+        if (typeof option === "string") {
+          return option === (product[category].toLowerCase());
         } else {
-          return product[category]
-            .map((item) => option.includes(item))
-            .includes(true);
+          return option.includes(product[category].toLowerCase())
         }
       });
       return doesInclude;
