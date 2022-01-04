@@ -91,10 +91,18 @@ function Products(props) {
     const filteredProducts = props.products.filter((product) => {
       const doesInclude = filters.every((element) => {
         const { category, option } = element;
-        if (typeof option === "string") {
+        if (typeof option === "string" && typeof product[category] === "string") {
           return option === (product[category].toLowerCase());
-        } else {
+        }
+        if (typeof option === "string" && typeof product[category] !== "string"){
+          const arr = product[category].map((item) => item.toLowerCase() );
+          return arr.includes(option);
+        }
+        if (typeof option !== "string" && typeof product[category] === "string") {
           return option.includes(product[category].toLowerCase())
+        }
+        if (typeof option !== "string" && typeof product[category] !== "string") {
+          return product[category].map((item) => option.includes(item.toLowerCase())).includes(true);
         }
       });
       return doesInclude;
