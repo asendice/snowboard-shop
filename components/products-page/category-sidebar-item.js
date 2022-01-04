@@ -12,6 +12,13 @@ function CategorySidebarItem(props) {
     })
   }
 
+  const filterOptionsForUndefined = options.filter((opt) => opt !== undefined);
+  const optionsLowerCase = filterOptionsForUndefined.map((option) => option.toLowerCase())
+
+  const filterOptionsForDup = optionsLowerCase.filter((opt, index) => {
+    return optionsLowerCase.indexOf(opt) === index;
+  });
+
   return (
     <li className={classes.container}>
       <h4 className={classes.header} onClick={() => setActive(!active)}>
@@ -19,7 +26,7 @@ function CategorySidebarItem(props) {
       </h4>
 
       <ul className={`${classes.activeList} ${active === true ? classes.active : classes.nonActive}`}>
-        {options.sort().map((option) => (
+        {filterOptionsForDup.sort().map((option) => (
           <li key={option} className={ `${props.filters.filter(item => item.option.includes(option)).length > 0 ? classes.filtered : "" }`}  onClick={() => sidebarItemHandler(option)}>
             {option}
           </li>
