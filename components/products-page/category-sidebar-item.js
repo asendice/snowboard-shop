@@ -8,16 +8,31 @@ function CategorySidebarItem(props) {
   function sidebarItemHandler(option) {
     props.updateFilters({
       category: category,
-      option: option
-    })
+      option: option,
+    });
   }
 
-  const filterOptionsForUndefined = options.filter((opt) => opt !== undefined);
-  const optionsLowerCase = filterOptionsForUndefined.map((option) => option.toLowerCase())
+  function filterOptionsForDuplicates() {
+    const filterOptionsForUndefined = options.filter(
+      (opt) => opt !== undefined
+    );
+    const optionsLowerCase = filterOptionsForUndefined.map((option) =>
+      option.toLowerCase()
+    );
+    return optionsLowerCase.filter(
+      (opt, index) => optionsLowerCase.indexOf(opt) === index
+    );
+  }
 
-  const filterOptionsForDup = optionsLowerCase.filter((opt, index) => {
-    return optionsLowerCase.indexOf(opt) === index;
-  });
+  function highlight(option) {
+    return props.filters.filter((item) => {
+      if (typeof item.option === "string") {
+        return item.option === option;
+      } else {
+        return item.option.includes(option);
+      }
+    });
+  }
 
   return (
     <li className={classes.container}>
@@ -25,12 +40,26 @@ function CategorySidebarItem(props) {
         {category}
       </h4>
 
-      <ul className={`${classes.activeList} ${active === true ? classes.active : classes.nonActive}`}>
-        {filterOptionsForDup.sort().map((option) => (
-          <li key={option} className={ `${props.filters.filter(item => item.option.includes(option)).length > 0 ? classes.filtered : "" }`}  onClick={() => sidebarItemHandler(option)}>
-            {option}
-          </li>
-        ))}
+      <ul
+        className={`${classes.activeList} ${
+          active === true ? classes.active : classes.nonActive
+        }`}
+      >
+        {filterOptionsForDuplicates()
+          .sort()
+          .map((option) => {
+            return (
+              <li
+                key={option}
+                className={`${
+                  highlight(option).length > 0 ? classes.filtered : ""
+                }`}
+                onClick={() => sidebarItemHandler(option)}
+              >
+                {option}
+              </li>
+            );
+          })}
       </ul>
     </li>
   );
