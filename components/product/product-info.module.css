@@ -67,3 +67,13 @@
 .cartIcon {
   font-size: 2rem;
 }
+
+.selected {
+  background-color: #333;
+  color: #fff;
+}
+
+.continue {
+  text-decoration: underline;
+  color: #177cbe;
+}
