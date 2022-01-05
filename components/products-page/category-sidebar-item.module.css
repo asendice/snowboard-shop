@@ -5,6 +5,9 @@
 }
 
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 1rem 2rem;
   margin: 0;
   cursor: pointer;
@@ -15,6 +18,10 @@
 
 .header:hover {
   background-color: #d3d3d3;
+}
+
+.headerCircle {
+  font-size: .8rem;
 }
 
 .filtered {

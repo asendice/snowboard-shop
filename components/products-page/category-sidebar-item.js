@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BsCircleFill } from "react-icons/bs";
 import classes from "./category-sidebar-item.module.css";
 
 function CategorySidebarItem(props) {
@@ -38,6 +39,7 @@ function CategorySidebarItem(props) {
     <li className={classes.container}>
       <h4 className={classes.header} onClick={() => setActive(!active)}>
         {category}
+        {props.filters.map((filter) => filter.category === category ? <BsCircleFill className={classes.headerCircle}/> : "")}
       </h4>
 
       <ul
