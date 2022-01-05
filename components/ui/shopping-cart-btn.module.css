@@ -1,7 +1,6 @@
 .scrolled {
   position: sticky;
   top: 2rem;
-  right: 5rem;
   left: 95%;
   z-index: 10;
   color: #fff;

@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: solid 1px var(--color-black);
+  /* border: solid 1px var(--color-black); */
   padding: 1rem;
   font-size: 1.2rem;
   transition: all 0.4s;

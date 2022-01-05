@@ -1,10 +1,10 @@
 .container {
   height: 100%;
   width: 100%;
-  grid-column: 2 / 6;
+  grid-row: 3 / 4;
+  grid-column: 2 / 7;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-row-start: 3;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   padding: 2rem;
   align-items: flex-start;
