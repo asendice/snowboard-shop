@@ -6,4 +6,6 @@
   align-items: center;
   justify-content: space-between;
   margin: 1rem;
+  cursor: pointer;
+  font-size: 1.6rem;
 }

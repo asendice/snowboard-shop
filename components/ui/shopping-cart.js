@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import classes from "./shopping-cart.module.css";
 import CheckoutBtn from "./checkout-btn";
+import Link from "next/link";
 import { BsX, BsCartCheck } from "react-icons/bs";
 import { useCart, useCartUpdate } from "../../store/cart-context";
 import { rounder } from "../../helpers/numbers-utils";
@@ -28,7 +29,6 @@ function ShoppingCart(props) {
   useEffect(() => {
     const prices = cart.map((item) => {
       return rounder(item.price * item.qty);
-   
     });
     const pricesTotaled = prices.reduce((a, b) => a + b, 0);
     setTotal(rounder(pricesTotaled));
@@ -42,18 +42,33 @@ function ShoppingCart(props) {
           <BsX className={classes.icon} onClick={() => setActive(false)} />
         </div>
         <ul className={classes.list}>
-          {cart.map((item) => (
-            <li className={classes.listItem} key={item._id}>
-              <img src={item.images[0]} />
-              <div className={classes.listItemContent}>
-                <h5>{item.title}</h5>
-                <p>Size: {item.size}</p>
-                <p>Qty: {item.qty}</p>
-                <p>${item.price * item.qty}</p>
-              </div>
-              <a onClick={() => updateCart("delete", item)}>remove</a>
-            </li>
-          ))}
+          {cart.map((item) => {
+            const href = `/products/${
+              item.size.length > 3 ? "clothes" : "snowboards"
+            }/${item.title}`;
+
+            return (
+              <li className={classes.listItem} key={item._id}>
+                <img src={item.images[0]} />
+                <div className={classes.listItemContent}>
+                  <Link href={href}>
+                    <a className={classes.listTitle}>
+                      <h5>{item.title}</h5>
+                    </a>
+                  </Link>
+                  <p>Size: {item.size}</p>
+                  <p>Qty: {item.qty}</p>
+                  <p>${item.price * item.qty}</p>
+                </div>
+                <a
+                  className={classes.remove}
+                  onClick={() => updateCart("delete", item)}
+                >
+                  remove
+                </a>
+              </li>
+            );
+          })}
         </ul>
         {cart.length > 0 && <CheckoutBtn>${total}</CheckoutBtn>}
       </div>

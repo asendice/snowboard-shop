@@ -82,7 +82,12 @@
   margin: 0;
 }
 
-.list a {
+.listTitle {
+  color: black;
+  text-decoration: underline;
+}
+
+.remove {
   align-self: flex-end;
   font-size: 1rem;
   text-decoration: underline;
@@ -96,3 +101,4 @@
   flex-direction: column;
   align-items: flex-start;
 }
+
