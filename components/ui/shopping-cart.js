@@ -1,10 +1,13 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import classes from "./shopping-cart.module.css";
-import { BsX } from "react-icons/bs";
+import CheckoutBtn from "./checkout-btn";
+import { BsX, BsCartCheck } from "react-icons/bs";
 import { useCart, useCartUpdate } from "../../store/cart-context";
+import { rounder } from "../../helpers/numbers-utils";
 
 function ShoppingCart(props) {
   const { setActive } = props;
+  const [total, setTotal] = useState();
   const modalRef = useRef(null);
   const cart = useCart();
   const updateCart = useCartUpdate();
@@ -22,7 +25,14 @@ function ShoppingCart(props) {
     };
   }, [modalRef]);
 
-  console.log(cart, "cart from sc")
+  useEffect(() => {
+    const prices = cart.map((item) => {
+      return rounder(item.price * item.qty);
+   
+    });
+    const pricesTotaled = prices.reduce((a, b) => a + b, 0);
+    setTotal(rounder(pricesTotaled));
+  }, [cart]);
 
   return (
     <section id="container" className={classes.container}>
@@ -31,15 +41,21 @@ function ShoppingCart(props) {
           <h4>Shopping Cart</h4>
           <BsX className={classes.icon} onClick={() => setActive(false)} />
         </div>
-        <ul>
+        <ul className={classes.list}>
           {cart.map((item) => (
-            <li key={item._id}>
-              {/* <img>{item.images[0]}</img> */}
-              <h5>{item.title}</h5>
-              <BsX onClick={() => updateCart("delete", item)}/>
+            <li className={classes.listItem} key={item._id}>
+              <img src={item.images[0]} />
+              <div className={classes.listItemContent}>
+                <h5>{item.title}</h5>
+                <p>Size: {item.size}</p>
+                <p>Qty: {item.qty}</p>
+                <p>${item.price * item.qty}</p>
+              </div>
+              <a onClick={() => updateCart("delete", item)}>remove</a>
             </li>
           ))}
         </ul>
+        {cart.length > 0 && <CheckoutBtn>${total}</CheckoutBtn>}
       </div>
     </section>
   );
