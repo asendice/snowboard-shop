@@ -4,6 +4,7 @@
   height: 10vh;
   display: flex;
   align-self: center;
+  align-items: center;
   justify-content: space-evenly;
   grid-column: 2 / 6;
   grid-row-start: 2;
