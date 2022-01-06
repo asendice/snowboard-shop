@@ -3,12 +3,16 @@ import classes from "./product-info.module.css";
 import Link from "next/link";
 import { BsCart3 } from "react-icons/bs";
 import { useCart, useCartUpdate } from "../../store/cart-context";
+import { useNotification } from "../../store/notifcation-context";
+
 function ProductInfo(props) {
   const { title, price, size, images, _id } = props.product;
   const [selectedSize, setSelectedSize] = useState(size[0]);
   const [qty, setQty] = useState(1);
   const cart = useCart();
   const updateCart = useCartUpdate();
+  const notification = useNotification();
+
 
   function addToCartHandler() {
     const product = {
@@ -21,6 +25,11 @@ function ProductInfo(props) {
     };
 
     updateCart("add", product);
+    notification.showNotification({
+      title: 'Shopping Cart Updated',
+      message: `${product.title} has been successfully added!`,
+      status: 'success'
+    })
   }
 
   return (
