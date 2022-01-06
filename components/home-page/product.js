@@ -12,13 +12,13 @@ function Product(props) {
     <div className={classes.container}>
       <div className={classes.overlay}>
         <a onClick={onProductClick} className={classes.btn}>
-          More Info
+          Details
         </a>
       </div>
       <div className={classes.imgContainer}>
         <img src={images} alt={title} />
       </div>
-      <h4>{title}</h4>
+      <h5>{title}</h5>
       <p>${price}</p>
     </div>
   );
