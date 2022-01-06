@@ -37,7 +37,7 @@ function ProductInfo(props) {
           size.map((item) => (
             <li
               key={item}
-              className={selectedSize === item && classes.selected}
+              className={selectedSize === item ? classes.selected : undefined}
               onClick={() => setSelectedSize(item)}
             >
               {item}cm
