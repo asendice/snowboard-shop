@@ -31,7 +31,6 @@ function ProductInfo(props) {
       <div className={classes.price}>
         <h3>${price}</h3>
       </div>
-      <h5>Select a size: </h5>
       <ul className={classes.size}>
         {props.category === "snowboards" &&
           size.map((item) => (
