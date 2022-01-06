@@ -5,9 +5,14 @@ import { getAllProducts } from "../../helpers/api-utils";
 
 function Layout(props) {
   const [products, setProducts] = useState([]);
+ 
+  async function getProducts(){
+    const allProducts = await getAllProducts();
+    setProducts(allProducts)
+  }
   useEffect(() => {
-    const products =  getAllProducts();
-    setProducts(products);
+    getProducts()
+
   },[])
   return (
     <Fragment>

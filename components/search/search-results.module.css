@@ -1,0 +1,46 @@
+.container {
+  background-color: #fff;
+  color: black;
+  min-height: 20rem;
+  width: 40rem;
+  position: absolute;
+  top: 7rem;
+  padding: 1rem;
+  z-index: 20;
+  border: solid 1px black;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list {
+  list-style: none;
+}
+
+.container h5 {
+  margin: 1rem 0px;
+  width: 30rem;
+  cursor: pointer;
+}
+
+.container h5:hover{
+  text-decoration: underline;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+}
+
+.imgContainer {
+  width: 5rem;
+  height: 5rem;
+  align-self: flex-start;
+}
+
+.img {
+  height: 4rem;
+}

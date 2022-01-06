@@ -1,11 +1,24 @@
 import { useState, useEffect } from "react";
 import classes from "./main-navigation.module.css";
 import Link from "next/link";
-import SearchBar from "../ui/search-bar";
+import SearchBar from "../search/search-bar";
+import SearchResults from "../search/search-results";
 import ShoppingCartBtn from "../ui/shopping-cart-btn";
 
-function MainNavigation() {
+function MainNavigation(props) {
+  const [term, setTerm] = useState("");
+  const [active, setActive] = useState(false);
 
+  useEffect(() => {
+    if(term.length > 0){
+      setActive(true);
+    }
+    if(term.length === 0){
+      setActive(false)
+    }
+  },[term]) 
+
+  const { products } = props;
   return (
     <div className={classes.container}>
       <Link href="/">
@@ -28,7 +41,8 @@ function MainNavigation() {
         </li>
       </ul>
       <div className={classes.actions}>
-        <SearchBar placeholder="Search Snowboard-Shop" />
+        <SearchBar setTerm={setTerm} term={term} placeholder="Search Snowboard-Shop" />
+        {active === true && <SearchResults products={products} term={term} setActive={setActive} />}
       </div>
       <ShoppingCartBtn />
       <div className={classes.burger}>
