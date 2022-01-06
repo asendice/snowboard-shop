@@ -26,3 +26,9 @@ export async function getClothingItem(title) {
   const clothes = await  getAllClothes();
   return clothes.filter((item) => item.title === title)
 }
+
+export async function getAllProducts() {
+  const boards = await getAllSnowboards();
+  const clothes = await getAllClothes();
+  return boards.concat(clothes).sort();
+}
