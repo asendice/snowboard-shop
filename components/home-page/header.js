@@ -7,7 +7,7 @@ const DUMMY_DATA = [
     image: "/images/snowboard-header.webp",
   },
   {
-    title: "Clothing",
+    title: "Clothes",
     image: "/images/clothing-header.jpeg",
   },
   {
