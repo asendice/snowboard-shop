@@ -1,19 +1,15 @@
 import classes from "./checkout-btn.module.css";
-import Link from "next/link";
-import { BsCartCheck } from "react-icons";
+import { useRouter } from "next/router";
 
 function CheckoutBtn(props) {
-  if (props.link) {
-    return (
-      <Link href={props.link}>
-        <a className={classes.btn}>
-          <span>Checkout</span> <span>{props.children}</span>
-        </a>
-      </Link>
-    );
+  const router = useRouter();
+  function handleClick() {
+    props.setActive(false)
+    router.push("/checkout");
   }
+
   return (
-    <a className={classes.btn}>
+    <a className={classes.btn} onClick={handleClick}>
       <span>Checkout</span> <span>{props.children}</span>
     </a>
   );

@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  width: 40rem;
+  min-height: 50rem;
+  border: solid 1px black;
+  font-size: 1.4rem;
+}
+
+.icon {
+  font-size: 2.2rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header h4 {
+  margin: 0;
+}
+
+.list {
+  list-style: none;
+}
+
+.list h5 {
+  margin: 0;
+}
+
+.listItem { 
+  border-bottom: solid 1px black;
+  padding: 2rem;
+}
+
+.listItemHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.feeContainer {
+  align-self: flex-end;
+}
+
+.total {
+  align-self: flex-end;
+}

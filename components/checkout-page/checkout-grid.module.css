@@ -1,0 +1,22 @@
+.container {
+  min-height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.summary {
+  grid-column: 2;
+  justify-self: center;
+  align-self: center;
+}
+.payment {
+  grid-column: 1;
+  justify-self: center;
+  align-self: center;
+}
+
+.breadcrumb {
+  grid-column: 1;
+  justify-self: flex-start;
+  padding: 1rem;
+}

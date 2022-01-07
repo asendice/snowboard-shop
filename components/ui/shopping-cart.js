@@ -70,7 +70,7 @@ function ShoppingCart(props) {
             );
           })}
         </ul>
-        {cart.length > 0 && <CheckoutBtn>${total}</CheckoutBtn>}
+        {cart.length > 0 && <CheckoutBtn setActive={setActive}>${total}</CheckoutBtn>}
       </div>
     </section>
   );
