@@ -1,17 +1,22 @@
 import classes from "./notification.module.css";
 import { useNotification } from "../../store/notifcation-context";
 
-function Notification(props){
+function Notification(props) {
   const notification = useNotification();
   const { title, message, status } = props;
-  return(
+  return (
     <div className={classes.container}>
-      <h4>{title}</h4>
-      <h4>{message}</h4>
-      <a onClick={notification.hideNotification}>Close</a>
-      <a>View Cart</a>
+      <div className={classes.text}>
+        <h5>"{title}"</h5>
+        <h5 className={classes.message}>{message}</h5>
+      </div>
+
+      <div className={classes.actions}>
+        <a onClick={notification.hideNotification}>Close</a>
+        <a>Checkout</a>
+      </div>
     </div>
-  )
+  );
 }
 
 export default Notification;

@@ -26,8 +26,8 @@ function ProductInfo(props) {
 
     updateCart("add", product);
     notification.showNotification({
-      title: 'Shopping Cart Updated',
-      message: `${product.title} has been successfully added!`,
+      title: `${product.title}`,
+      message: `added to shopping cart!`,
       status: 'success'
     })
   }

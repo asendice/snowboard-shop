@@ -22,7 +22,7 @@ export function NotificationProvider({children}){
     ) {
       const timer = setTimeout(() => {
         setActiveNotification(null);
-      }, 7000);
+      }, 5000);
 
       return () => {
         clearTimeout(timer);
