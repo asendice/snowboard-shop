@@ -2,7 +2,7 @@ import classes from "./cart-summary.module.css";
 import { BsCart3 } from "react-icons/bs";
 
 function CartSummary(props) {
-  const { items } = props;
+  const { items, total, tax } = props;
   return (
     <div className={classes.container}>
       <div className={classes.header}>
@@ -25,12 +25,12 @@ function CartSummary(props) {
       </ul>
 
       <div className={classes.feeContainer}>
-        <p>Tax: </p>
-        <p>Shipping: </p>
+        <p>Tax: ${tax} </p>
+        <p>Shipping: $29.99 </p>
       </div>
 
       <div className={classes.total}>
-        <h5>Total: $MONEY </h5>
+        <h5>Total: ${total} </h5>
       </div>
     </div>
   );
