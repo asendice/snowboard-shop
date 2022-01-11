@@ -1,8 +1,7 @@
 .container {
   padding: 2rem;
   height: 100%;
-  width: 60%;
-  /* background-color: pink; */
+  max-width: 50rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -13,13 +12,12 @@
 }
 
 .control {
-  width: 100%;
+  width: 35rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: .5rem;
   font-size: 1.6rem;
-  background-color: blue;
 }
 
 .control input {
@@ -27,4 +25,39 @@
   padding: .5rem;
   margin-top: .5rem;
   width: 100%;
+}
+
+ .date {
+  padding: .5rem;
+  font-size:  1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.same {
+  padding: .5rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+.dateSelectors {
+  display: flex;
+  gap: .5rem;
+  padding: .5rem 0rem;
+}
+
+.dateSelectors select {
+  width: 15rem;
+}
+
+.placeOrder {
+  width: 100%;
+  align-self: center;
+  outline: none;
+  border: none;
+  background-color: #10be58;
+  color: #fff;
+  padding: 1rem 2rem;
 }

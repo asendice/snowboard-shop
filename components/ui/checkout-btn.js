@@ -10,7 +10,7 @@ function CheckoutBtn(props) {
 
   return (
     <a className={classes.btn} onClick={handleClick}>
-      <span>Checkout</span> <span>{props.children}</span>
+      <span>{props.title}</span> <span>{props.children}</span>
     </a>
   );
 }

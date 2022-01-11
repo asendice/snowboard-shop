@@ -116,7 +116,7 @@ function PaymentDetails() {
       <div className={classes.same}>
         <input type="checkbox" onClick={() => setSameAddress(!sameAddress)} />
 
-        <label>Billing Address Same As Shipping Address ?</label>
+        <label>Shipping Same As Billing</label>
       </div>
       {sameAddress === false && (
         <div className={classes.details}>
@@ -164,23 +164,25 @@ function PaymentDetails() {
           <div className={classes.date}>
             <label>Expiration Date</label>
 
-            <select onChange={(e) => setMonth(e.target.value)}>
-              <option disabled>Month</option>
-              {months.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
+            <div className={classes.dateSelectors}>
+              <select onChange={(e) => setMonth(e.target.value)}>
+                <option disabled>Month</option>
+                {months.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
 
-            <select onChange={(e) => setYear(e.target.value)}>
-              <option disabled>Year</option>
-              {years.map((item) => (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              ))}
-            </select>
+              <select onChange={(e) => setYear(e.target.value)}>
+                <option disabled>Year</option>
+                {years.map((item) => (
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
 
           <div className={classes.control}>
@@ -190,7 +192,7 @@ function PaymentDetails() {
         </div>
       </div>
 
-      <button type="submit">Place Order</button>
+      <button className={classes.placeOrder}type="submit">Place Order</button>
     </form>
   );
 }

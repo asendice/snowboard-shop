@@ -35,6 +35,7 @@ function CheckoutGrid() {
       </div>
 
       <div className={classes.payment}>
+        <h4>Payment Details</h4>
         <PaymentDetails />
       </div>
     </div>
