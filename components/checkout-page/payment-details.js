@@ -84,6 +84,51 @@ function PaymentDetails() {
   return (
     <form className={classes.container} onSubmit={(e) => handleOrder(e)}>
       <div className={classes.details}>
+        <div className={classes.details}>
+          <h5>Payment Details</h5>
+
+          <div className={classes.control}>
+            <label>Card Number</label>
+            <input
+              onChange={(e) => setCard(e.target.value)}
+              type="setFullName(e.target.value)"
+            />
+          </div>
+
+          <div className={classes.cardSubDetails}>
+            <div className={classes.date}>
+              <label>Expiration Date</label>
+
+              <div className={classes.dateSelectors}>
+                <select onChange={(e) => setMonth(e.target.value)}>
+                  <option disabled>Month</option>
+                  {months.map((item) => (
+                    <option key={item} value={item}>
+                      {item}
+                    </option>
+                  ))}
+                </select>
+
+                <select onChange={(e) => setYear(e.target.value)}>
+                  <option disabled>Year</option>
+                  {years.map((item) => (
+                    <option key={item} value={item}>
+                      {item}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div className={classes.control}>
+              <label>Security Code</label>
+              <input
+                type="password"
+                onChange={(e) => setCode(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
         <h5>Shipping details</h5>
 
         <div className={classes.control}>
@@ -149,50 +194,10 @@ function PaymentDetails() {
           </div>
         </div>
       )}
-      <div className={classes.details}>
-        <h5>Payment Details</h5>
 
-        <div className={classes.control}>
-          <label>Card Number</label>
-          <input
-            onChange={(e) => setCard(e.target.value)}
-            type="setFullName(e.target.value)"
-          />
-        </div>
-
-        <div className={classes.cardSubDetails}>
-          <div className={classes.date}>
-            <label>Expiration Date</label>
-
-            <div className={classes.dateSelectors}>
-              <select onChange={(e) => setMonth(e.target.value)}>
-                <option disabled>Month</option>
-                {months.map((item) => (
-                  <option key={item} value={item}>
-                    {item}
-                  </option>
-                ))}
-              </select>
-
-              <select onChange={(e) => setYear(e.target.value)}>
-                <option disabled>Year</option>
-                {years.map((item) => (
-                  <option key={item} value={item}>
-                    {item}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          <div className={classes.control}>
-            <label>Security Code</label>
-            <input type="password" onChange={(e) => setCode(e.target.value)} />
-          </div>
-        </div>
-      </div>
-
-      <button className={classes.placeOrder}type="submit">Place Order</button>
+      <button className={classes.placeOrder} type="submit">
+        Place Order
+      </button>
     </form>
   );
 }
