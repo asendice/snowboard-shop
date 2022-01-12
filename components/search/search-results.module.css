@@ -30,7 +30,7 @@
   text-decoration: underline;
 }
 
-.list li {
+.list a {
   display: flex;
   align-items: center;
 }
@@ -43,4 +43,11 @@
 
 .img {
   height: 4rem;
+}
+
+.closeIcon {
+  display: block;
+  margin-left: auto;
+  font-size: 2.2rem;
+  cursor: pointer;
 }

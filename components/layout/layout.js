@@ -3,22 +3,25 @@ import MainNavigation from "./main-navigation";
 import Footer from "./footer";
 import Notification from "../ui/notification";
 import { useNotification } from "../../store/notifcation-context";
-import { getAllProducts } from "../../helpers/api-utils";
+import { getAllSnowboards, getAllClothes} from "../../helpers/api-utils";
 
 function Layout(props) {
-  const [products, setProducts] = useState([]);
+  const [boards, setBoards] = useState([]);
+  const [clothes, setClothes] = useState([]);
   const notificationContext = useNotification();
   const notification = notificationContext.notification;
   async function getProducts() {
-    const allProducts = await getAllProducts();
-    setProducts(allProducts);
+    const snowboards = await getAllSnowboards();
+    const clothess = await getAllClothes();
+    setBoards(snowboards);
+    setClothes(clothess);
   }
   useEffect(() => {
     getProducts();
   }, []);
   return (
     <Fragment>
-      <MainNavigation products={products} />
+      <MainNavigation boards={boards} clothes={clothes} />
       {props.children}
       <Footer />
       {notification && (

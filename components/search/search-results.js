@@ -4,7 +4,7 @@ import Link from "next/link";
 import { BsX } from "react-icons/bs";
 
 function SearchResults(props) {
-  const { products, term, setActive } = props;
+  const { boards, clothes, term, setActive } = props;
   const searchRef = useRef();
 
   useEffect(() => {
@@ -20,35 +20,69 @@ function SearchResults(props) {
     };
   }, [searchRef]);
 
-  function filterProducts() {
-    return products.filter((item) =>
+  function filterProducts(items) {
+    return items.filter((item) =>
       item.title.toLowerCase().includes(term.toLowerCase())
     );
   }
 
-  const searchedProducts = filterProducts();
+  const searchedBoards = filterProducts(boards);
+  const searchedClothes = filterProducts(clothes);
 
-  if (searchedProducts.length > 0) {
+  if (searchedBoards.length > 0 || searchedClothes.length > 0) {
     return (
       <div ref={searchRef} className={classes.container}>
-        <div className={classes.header}>
-          <Link href="/products">
-            <a>
-              <h5>Products</h5>
-            </a>
-          </Link>
-          <BsX onClick={() => setActive(false)} />
-        </div>
-        <ul className={classes.list}>
-          {searchedProducts.slice(0, 4).map((item) => (
-            <li>
-              <div className={classes.imgContainer}>
-                <img className={classes.img} src={item.images[0]} />
-              </div>
-              <h5>{item.title}</h5>
-            </li>
-          ))}
-        </ul>
+        <BsX className={classes.closeIcon} onClick={() => setActive(false)} />
+        {searchedBoards.length > 0 && (
+          <>
+            <div className={classes.header}>
+              <Link href="/products/snowboards">
+                <a>
+                  <h5>Snowboards</h5>
+                </a>
+              </Link>
+            </div>
+            <ul className={classes.list}>
+              {searchedBoards.slice(0, 4).map((item) => (
+                <li>
+                  <Link href={`/products/snowboards/${item.title}`}>
+                    <a>
+                      <div className={classes.imgContainer}>
+                        <img className={classes.img} src={item.images[0]} />
+                      </div>
+                      <h5>{item.title}</h5>
+                    </a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+        {searchedClothes.length > 0 && (
+          <>
+            <div className={classes.header}>
+              <Link href="/products/clothes">
+                <a>
+                  <h5>Clothes</h5>
+                </a>
+              </Link>
+            </div>
+            <ul className={classes.list}>
+              {searchedClothes.slice(0, 4).map((item) => (
+                <li>
+                  <Link href={`/products/clothes/${item.title}`}>
+                    <a>
+                      <div className={classes.imgContainer}>
+                        <img className={classes.img} src={item.images[0]} />
+                      </div>
+                      <h5>{item.title}</h5>
+                    </a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
       </div>
     );
   }

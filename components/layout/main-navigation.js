@@ -18,7 +18,7 @@ function MainNavigation(props) {
     }
   },[term]) 
 
-  const { products } = props;
+  const { boards, clothes } = props;
   return (
     <div className={classes.container}>
       <Link href="/">
@@ -42,7 +42,7 @@ function MainNavigation(props) {
       </ul>
       <div className={classes.actions}>
         <SearchBar setTerm={setTerm} term={term} placeholder="Search Snowboard-Shop" />
-        {active === true && <SearchResults products={products} term={term} setActive={setActive} />}
+        {active === true && <SearchResults boards={boards} clothes={clothes} term={term} setActive={setActive} />}
       </div>
       <ShoppingCartBtn />
       <div className={classes.burger}>
