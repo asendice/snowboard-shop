@@ -6,6 +6,7 @@ import ProductGrid from "./product-grid";
 import PageNavigator from "./page-navigatior";
 import ShoppingCartBtn from "../ui/shopping-cart-btn";
 import Breadcrumb from "../ui/breadcrumb";
+import SavingsBtn from "../savings/savings-btn";
 
 function Products(props) {
   const [filters, setFilters] = useState([]);
@@ -170,6 +171,7 @@ function Products(props) {
           setActivePage={setActivePage}
         />
       </div>
+      <SavingsBtn  />
     </section>
   );
 }

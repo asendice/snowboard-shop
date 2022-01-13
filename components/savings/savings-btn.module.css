@@ -1,0 +1,30 @@
+.container {
+  position: fixed;
+  bottom: 5px;
+  left: 2rem;
+  padding: 2rem 6rem;
+  border: solid 2px red;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  transition: all .4s;
+  cursor: pointer;
+  background-color: red;
+  z-index: 30;
+}
+
+.container:hover {
+  background-color: #fff;
+  color: red;
+}
+
+.active {
+  opacity: 1;
+  visibility: visibile;
+}
+
+.nonActive {
+  /* transform: translateY(20%); */
+  opacity: 0;
+  visibility: hidden;
+}
