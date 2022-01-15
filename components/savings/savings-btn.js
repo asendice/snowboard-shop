@@ -1,5 +1,6 @@
-import classes from "./savings-btn.module.css";
 import { useState, useEffect, Fragment } from "react";
+import SavingsModal from "./savings-modal";
+import classes from "./savings-btn.module.css";
 
 function SavingsBtn() {
   const [ active, setActive ] = useState(false);
@@ -36,10 +37,10 @@ function SavingsBtn() {
 
   return (
     <Fragment>
-    <a className={`${classes.container} ${classes[className]}`}>
+    <a  onClick={() => setActive(true)} className={`${classes.container} ${classes[className]}`}>
       15% OFF!*
     </a>
-    {active === true && <SavingModal />}
+    {active === true && <SavingsModal />}
     </Fragment>
   )
 
