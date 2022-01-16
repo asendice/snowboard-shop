@@ -40,7 +40,7 @@ function SavingsBtn() {
     <a  onClick={() => setActive(true)} className={`${classes.container} ${classes[className]}`}>
       15% OFF!*
     </a>
-    {active === true && <SavingsModal />}
+    {active === true && <SavingsModal setActive={setActive} />}
     </Fragment>
   )
 
