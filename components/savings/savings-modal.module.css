@@ -34,7 +34,7 @@
 .content h3 {
   font-size: 7rem;
   margin: 0;
-  margin-top: 2.5rem;
+  /* margin-top: 2.5rem; */
 }
 
 .subText {
@@ -45,6 +45,7 @@
   font-size: 4rem;
   color: black;
   align-self: flex-end;
+  cursor: pointer;
 }
 
 .input {
@@ -62,10 +63,47 @@
   background-color: red;
   width: 30rem;
   font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.btn:hover{
+  animation: pulse 1.4s infinite;
 }
 
 .cancel {
   font-size: 1.4rem;
+  cursor: pointer;
+  transition: all .4s;
+  position: relative;
+}
+.cancel::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transform: scaleX(0);
+  transition: transform .5s ease;
+}
+
+.cancel:hover::before {
+  transform: scaleX(1);
+
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(1.2)
+  }
+  100% {
+    transform: scale(1)
+  }
 }
 
 .finePrint {
