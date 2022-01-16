@@ -31,7 +31,6 @@ export function NotificationProvider({children}){
   }, [activeNotification]);
 
   function showNotificationHandler(data) {
-    console.log(data, "data")
     setActiveNotification(data)
   }
   function hideNotificationHandler() {

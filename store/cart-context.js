@@ -17,7 +17,6 @@ export function CartProvider({ children }) {
   function updateCart(action, item) {
     if (action === "add") {
       setCart((prevCart) => [...prevCart, item]);
-      console.log("ADDED TO CART")
       return;
     }
     if (action === "delete") {
