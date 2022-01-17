@@ -40,7 +40,7 @@ export async function postEmail(email) {
     headers: { "Content-Type": "application/json" },
     body: postObj,
   };
-  const response = await fetch("http://localhost:3000/api/email-list", request);
+  const response = await fetch("http://localhost:3000/api/emails", request);
   const data = await response.json();
   return data;
 }

@@ -1,9 +1,11 @@
 import { useRef, useEffect } from "react";
 import classes from "./savings-modal.module.css";
 import { BsX } from "react-icons/bs";
+import { postEmail } from "../../helpers/api-utils";
 
 function SavingsModal(props) {
   const modalRef = useRef();
+  const emailRef = useRef();
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -17,6 +19,14 @@ function SavingsModal(props) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [modalRef]);
+
+  function activateOfferHandler() {
+    const email = emailRef.current.value;
+    if (email.length > 0) {
+      postEmail(emailRef.current.value);
+      return;
+    }
+  }
 
   return (
     <div className={classes.container}>
@@ -34,8 +44,14 @@ function SavingsModal(props) {
         <h4>Gear Up!</h4>
         <h3>GET 15%! OFF*</h3>
         <p className={classes.subText}>your first order when you sign up!</p>
-        <input className={classes.input} placeholder="ENTER EMAIL ADDRESS" />
-        <a className={classes.btn}>ACTIVATE OFFER</a>
+        <input
+          ref={emailRef}
+          className={classes.input}
+          placeholder="ENTER EMAIL ADDRESS"
+        />
+        <a className={classes.btn} onClick={() => activateOfferHandler()}>
+          ACTIVATE OFFER
+        </a>
         <a className={classes.cancel} onClick={() => props.setActive(false)}>
           No Thank You
         </a>
