@@ -1,5 +1,5 @@
 import classes from "./notification.module.css";
-import { useNotification } from "../../store/notifcation-context";
+import { useNotification } from "../../store/notification-context";
 
 function Notification(props) {
   const notification = useNotification();

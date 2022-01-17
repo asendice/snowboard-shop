@@ -19,6 +19,6 @@ export async function getDocuments(client, collection, sort) {
 
 export async function postDocuments(client, collection, item) {
   const db = client.db();
-  const insertDoc = await db.collection(collection).insertOne(item);
-  return insertDoc;
+  await db.collection(collection).insertOne(item);
+  return item;
 }

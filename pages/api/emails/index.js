@@ -1,4 +1,7 @@
-import { connectPortalDatabase, postDocuments } from "../../../helpers/db-utils";
+import {
+  connectPortalDatabase,
+  postDocuments,
+} from "../../../helpers/db-utils";
 
 async function handler(req, res) {
   let client;
@@ -13,7 +16,12 @@ async function handler(req, res) {
     try {
       const item = req.body;
       const documents = await postDocuments(client, "emails", item);
-      res.status(200).json({ email: documents });
+      res
+        .status(200)
+        .json(
+          { email: documents },
+          { message: "Successfully uploaded Email address" }
+        );
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

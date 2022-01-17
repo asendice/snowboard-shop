@@ -42,5 +42,6 @@ export async function postEmail(email) {
   };
   const response = await fetch("http://localhost:3000/api/emails", request);
   const data = await response.json();
+  console.log(data, "from postEmail")
   return data;
 }

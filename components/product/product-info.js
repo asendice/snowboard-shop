@@ -3,7 +3,7 @@ import classes from "./product-info.module.css";
 import Link from "next/link";
 import { BsCart3 } from "react-icons/bs";
 import { useCart, useCartUpdate } from "../../store/cart-context";
-import { useNotification } from "../../store/notifcation-context";
+import { useNotification } from "../../store/notification-context";
 
 function ProductInfo(props) {
   const { title, price, size, images, _id } = props.product;

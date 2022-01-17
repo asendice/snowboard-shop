@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import MainNavigation from "./main-navigation";
 import Footer from "./footer";
 import Notification from "../ui/notification";
-import { useNotification } from "../../store/notifcation-context";
+import { useNotification } from "../../store/notification-context";
 import { getAllSnowboards, getAllClothes} from "../../helpers/api-utils";
 
 function Layout(props) {

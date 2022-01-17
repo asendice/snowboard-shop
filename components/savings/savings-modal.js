@@ -2,10 +2,15 @@ import { useRef, useEffect } from "react";
 import classes from "./savings-modal.module.css";
 import { BsX } from "react-icons/bs";
 import { postEmail } from "../../helpers/api-utils";
+import { useSave } from "../../store/save-context";
+import { useNotification } from "../../store/notification-context";
 
 function SavingsModal(props) {
   const modalRef = useRef();
   const emailRef = useRef();
+
+  const save = useSave();
+  const notification = useNotification();
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -23,8 +28,26 @@ function SavingsModal(props) {
   function activateOfferHandler() {
     const email = emailRef.current.value;
     if (email.length > 0) {
-      postEmail(emailRef.current.value);
-      return;
+      postEmail(emailRef.current.value)
+      .then((response) => {
+        if(response){
+          return response;
+        }
+        else {
+          throw error;
+        }
+      })
+      .then((email) => {
+        console.log(email)
+        props.setActive(false);
+        save.updateEmail(email.email.email)
+        notification.showNotification({
+          title: `${email.email.email}`,
+          message: `Accepted! 15% automatically added at checkout`,
+          status: 'success'
+        })
+      })
+      // return;
     }
   }
 
