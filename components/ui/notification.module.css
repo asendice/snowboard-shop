@@ -10,6 +10,7 @@
   color: #fff;
   font-size: 1.6rem;
   animation: slideUp .4s;
+  z-index: 100;
 }
 
 .container::before {

@@ -13,7 +13,6 @@ function Notification(props) {
 
       <div className={classes.actions}>
         <a onClick={notification.hideNotification}>Close</a>
-        <a>Checkout</a>
       </div>
     </div>
   );

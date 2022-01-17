@@ -19,11 +19,10 @@ async function handler(req, res) {
       res
         .status(200)
         .json(
-          { email: documents },
-          { message: "Successfully uploaded Email address" }
+          { email: documents, message: 'Success!', status: 200 }
         );
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      res.status(500).json({ error: error.message, email: item });
     }
   }
 

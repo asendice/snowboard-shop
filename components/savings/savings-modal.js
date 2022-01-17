@@ -29,25 +29,26 @@ function SavingsModal(props) {
     const email = emailRef.current.value;
     if (email.length > 0) {
       postEmail(emailRef.current.value)
-      .then((response) => {
-        if(response){
-          return response;
-        }
-        else {
-          throw error;
-        }
-      })
-      .then((email) => {
-        console.log(email)
-        props.setActive(false);
-        save.updateEmail(email.email.email)
-        notification.showNotification({
-          title: `${email.email.email}`,
-          message: `Accepted! 15% automatically added at checkout`,
-          status: 'success'
+        .then((response) => {
+          if(response.status === 200){
+            props.setActive(false);
+            save.updateEmail(response.email.email);
+            notification.showNotification({
+              title: `${response.email.email}`,
+              message: `Accepted! 15% automatically added at checkout`,
+              status: "success",
+            });
+          }
+          if(response.status !== 200){
+            props.setActive(false);
+            notification.showNotification({
+              title: `${response.email.email}`,
+              message: `Invalid Email Entry`,
+              status: "failed",
+            });
+          }
         })
-      })
-      // return;
+
     }
   }
 
@@ -60,7 +61,6 @@ function SavingsModal(props) {
         }}
         className={classes.content}
       >
-        {" "}
         <div className={classes.clsBtn} onClick={() => props.setActive(false)}>
           <BsX />
         </div>
