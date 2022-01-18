@@ -7,6 +7,7 @@ import PageNavigator from "./page-navigatior";
 import ShoppingCartBtn from "../ui/shopping-cart-btn";
 import Breadcrumb from "../ui/breadcrumb";
 import SavingsBtn from "../savings/savings-btn";
+import { useSave } from "../../store/save-context";
 
 function Products(props) {
   const [filters, setFilters] = useState([]);
@@ -14,6 +15,10 @@ function Products(props) {
   const [sortedBy, setSortedBy] = useState("");
   const [pages, setPages] = useState(1);
   const [activePage, setActivePage] = useState(1);
+
+  const save = useSave();
+
+  console.log(save.saveActive, ">");
 
   function updateFilters(filter) {
     const categories = filters.map((item) => item.category);
@@ -24,7 +29,10 @@ function Products(props) {
       (item) => item.category !== filter.category
     );
 
-    if (filteredItem && filteredItem.option === (filter.option) || filteredItem && filteredItem.option.includes(filter.option) ) {
+    if (
+      (filteredItem && filteredItem.option === filter.option) ||
+      (filteredItem && filteredItem.option.includes(filter.option))
+    ) {
       const itemChanged = {
         category: filteredItem.category,
         option:
@@ -92,18 +100,32 @@ function Products(props) {
     const filteredProducts = props.products.filter((product) => {
       const doesInclude = filters.every((element) => {
         const { category, option } = element;
-        if (typeof option === "string" && typeof product[category] === "string") {
-          return option === (product[category].toLowerCase());
+        if (
+          typeof option === "string" &&
+          typeof product[category] === "string"
+        ) {
+          return option === product[category].toLowerCase();
         }
-        if (typeof option === "string" && typeof product[category] !== "string"){
-          const arr = product[category].map((item) => item.toLowerCase() );
+        if (
+          typeof option === "string" &&
+          typeof product[category] !== "string"
+        ) {
+          const arr = product[category].map((item) => item.toLowerCase());
           return arr.includes(option);
         }
-        if (typeof option !== "string" && typeof product[category] === "string") {
-          return option.includes(product[category].toLowerCase())
+        if (
+          typeof option !== "string" &&
+          typeof product[category] === "string"
+        ) {
+          return option.includes(product[category].toLowerCase());
         }
-        if (typeof option !== "string" && typeof product[category] !== "string") {
-          return product[category].map((item) => option.includes(item.toLowerCase())).includes(true);
+        if (
+          typeof option !== "string" &&
+          typeof product[category] !== "string"
+        ) {
+          return product[category]
+            .map((item) => option.includes(item.toLowerCase()))
+            .includes(true);
         }
       });
       return doesInclude;
@@ -171,7 +193,9 @@ function Products(props) {
           setActivePage={setActivePage}
         />
       </div>
-      <SavingsBtn  />
+      {save.saveActive === false && 
+      <SavingsBtn />
+      }
     </section>
   );
 }
