@@ -13,13 +13,18 @@
   z-index: 100;
 }
 
-.container::before {
-  content: "";
+.color{
   position: absolute;
   left: 0;
   height: 100%;
   width: 4rem;
+}
+
+.success {
   background-color: #10be58;
+}
+.failed {
+  background-color: red;
 }
 
 .message {
