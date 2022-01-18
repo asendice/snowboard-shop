@@ -22,7 +22,7 @@ async function handler(req, res) {
           { email: documents, message: 'Success!', status: 200 }
         );
     } catch (error) {
-      res.status(500).json({ error: error.message, email: item });
+      res.status(500).json({ error: error.message});
     }
   }
 

@@ -19,6 +19,14 @@ export async function getDocuments(client, collection, sort) {
 
 export async function postDocuments(client, collection, item) {
   const db = client.db();
-  await db.collection(collection).insertOne(item);
-  return item;
+  const includes = await db
+    .collection(collection)
+    .find({ email: item.email })
+    .toArray();
+  if ((await includes.length) > 0) {
+    throw Error("Email is invalid or has already been activated...");
+  } else {
+    await db.collection(collection).insertOne(item);
+    return item;
+  }
 }

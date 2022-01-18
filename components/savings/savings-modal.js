@@ -40,10 +40,9 @@ function SavingsModal(props) {
             });
           }
           if(response.status !== 200){
-            props.setActive(false);
             notification.showNotification({
-              title: `${response.email.email}`,
-              message: `Invalid Email Entry`,
+              title: `FAILED: `,
+              message: `${response.error}`,
               status: "failed",
             });
           }
