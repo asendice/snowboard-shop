@@ -12,6 +12,8 @@ function SavingsModal(props) {
   const save = useSave();
   const notification = useNotification();
 
+ 
+
   useEffect(() => {
     function handleClickOutside(event) {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
