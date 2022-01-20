@@ -1,19 +1,25 @@
 .container {
   position: fixed;
-  bottom:0;
-  width: 70vw;
-  left: 15%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  bottom: 0;
+  width: 70rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   background-color: black;
   color: #fff;
   font-size: 1.6rem;
-  animation: slideUp .4s;
+  animation: slideUp 0.4s;
   z-index: 100;
 }
 
-.color{
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.color {
   position: absolute;
   left: 0;
   height: 100%;
@@ -38,7 +44,7 @@
 
 .actions {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   margin-right: 5rem;
 }
 
