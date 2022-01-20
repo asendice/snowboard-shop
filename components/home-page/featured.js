@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import classes from "./featured.module.css";
 import ProductSlider from "./product-slider";
 import SavingsModal from "../savings/savings-modal";
+import { useSave } from "../../store/save-context";
 
 function Featured(props) {
   const [scrollY, setScrollY] = useState(0);
   const [active, setActive] = useState(false);
   const [times, setTimes] = useState(0);
+  const savings = useSave();
 
   useEffect(() => {
     if (active === true) {
@@ -45,7 +47,7 @@ function Featured(props) {
       <ProductSlider items={snowboards} category={"snowboards"} />
       <h3>Clothes</h3>
       <ProductSlider items={clothing} category={"clothes"} />
-      {active === true && (
+      {active === true && savings.saveActive === false &&  (
         <SavingsModal setActive={setActive} active={active} />
       )}
     </div>

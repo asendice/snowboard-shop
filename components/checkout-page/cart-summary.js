@@ -2,7 +2,7 @@ import classes from "./cart-summary.module.css";
 import { BsCart3 } from "react-icons/bs";
 
 function CartSummary(props) {
-  const { items, total, tax } = props;
+  const { items, total, tax, savings } = props;
   return (
     <div className={classes.container}>
       <div className={classes.header}>
@@ -14,9 +14,8 @@ function CartSummary(props) {
         {items.map((item) => (
           <li className={classes.listItem} key={item}>
             <div className={classes.listItemHeader}>
-              <h5>
-                {item.qty}x {item.title}
-              </h5>
+              <h5>{item.qty}x)</h5>
+              <h5>{item.title}</h5>
               <h5>${item.price}</h5>
             </div>
             <p>Size: {item.size}</p>
@@ -27,6 +26,7 @@ function CartSummary(props) {
       <div className={classes.feeContainer}>
         <p>Tax: ${tax} </p>
         <p>Shipping: $29.99 </p>
+        {savings < total && <p>15% Off: -${savings}</p>}
       </div>
 
       <div className={classes.total}>
