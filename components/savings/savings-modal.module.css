@@ -22,7 +22,6 @@
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  /* justify-content: center; */
   background-color: #fff;
   color: #fff;
   padding: 2rem;
@@ -34,7 +33,6 @@
 .content h3 {
   font-size: 7rem;
   margin: 0;
-  /* margin-top: 2.5rem; */
 }
 
 .subText {
@@ -53,7 +51,6 @@
   width: 30rem;
   outline: none;
   border: none;
-
 }
 
 .btn {
@@ -108,4 +105,12 @@
 
 .finePrint {
   font-size: 1rem;
+}
+
+.error {
+  display: block;
+  margin-left: 2rem;
+  margin-top: .5rem;
+  color: red;
+  font-size: 1.4rem;
 }

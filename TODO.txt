@@ -1,0 +1,5 @@
+1) email input validation client side 
+2) initialize sort state with A-Z Name
+3) Shopping cart is empty render if cart state === 0
+4) Add Accessories 
+5) notification message ui
