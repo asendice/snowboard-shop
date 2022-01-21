@@ -12,13 +12,11 @@ import { useSave } from "../../store/save-context";
 function Products(props) {
   const [filters, setFilters] = useState([]);
   const [itemsPerPage, setItemsPerPage] = useState(20);
-  const [sortedBy, setSortedBy] = useState("");
+  const [sortedBy, setSortedBy] = useState("Name: A-Z");
   const [pages, setPages] = useState(1);
   const [activePage, setActivePage] = useState(1);
 
   const save = useSave();
-
-  console.log(save.saveActive, ">");
 
   function updateFilters(filter) {
     const categories = filters.map((item) => item.category);
