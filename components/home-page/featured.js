@@ -11,7 +11,7 @@ function Featured(props) {
   const savings = useSave();
 
   useEffect(() => {
-    if (active === true) {
+    if (active === true && savings.saveActive === false) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
