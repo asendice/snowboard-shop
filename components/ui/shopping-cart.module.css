@@ -108,3 +108,21 @@
   margin-left: 1rem;
 }
 
+
+.emptyCart {
+  margin-top: 13rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.cartIcon {
+  font-size: 20rem;
+  color: #333;
+}
+
+.shopBtn {
+  padding: 1rem 2.5rem;
+  border: solid 1px #333;
+}

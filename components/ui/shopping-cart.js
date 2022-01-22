@@ -1,8 +1,8 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, Fragment } from "react";
 import classes from "./shopping-cart.module.css";
 import CheckoutBtn from "./checkout-btn";
 import Link from "next/link";
-import { BsX, BsCartCheck } from "react-icons/bs";
+import { BsX, BsCartX } from "react-icons/bs";
 import { useCart, useCartUpdate } from "../../store/cart-context";
 import { rounder } from "../../helpers/numbers-utils";
 
@@ -41,36 +41,49 @@ function ShoppingCart(props) {
           <h4>Shopping Cart</h4>
           <BsX className={classes.icon} onClick={() => setActive(false)} />
         </div>
-        <ul className={classes.list}>
-          {cart.map((item) => {
-            const href = `/products/${
-              item.size.length > 3 ? "clothes" : "snowboards"
-            }/${item.title}`;
 
-            return (
-              <li className={classes.listItem} key={item._id}>
-                <img src={item.images[0]} />
-                <div className={classes.listItemContent}>
-                  <Link href={href}>
-                    <a className={classes.listTitle}>
-                      <h5>{item.title}</h5>
+        {cart.length > 0 ? (
+          <Fragment>
+            <ul className={classes.list}>
+              {cart.map((item) => {
+                // puke -- going to need to fix this before adding accessories
+                const href = `/products/${
+                  item.size.length > 3 ? "clothes" : "snowboards"
+                }/${item.title}`;
+                return (
+                  <li className={classes.listItem} key={item._id}>
+                    <img src={item.images[0]} />
+                    <div className={classes.listItemContent}>
+                      <Link href={href}>
+                        <a className={classes.listTitle}>
+                          <h5>{item.title}</h5>
+                        </a>
+                      </Link>
+                      <p>Size: {item.size}</p>
+                      <p>Qty: {item.qty}</p>
+                      <p>${item.price * item.qty}</p>
+                    </div>
+                    <a
+                      className={classes.remove}
+                      onClick={() => updateCart("delete", item)}
+                    >
+                      remove
                     </a>
-                  </Link>
-                  <p>Size: {item.size}</p>
-                  <p>Qty: {item.qty}</p>
-                  <p>${item.price * item.qty}</p>
-                </div>
-                <a
-                  className={classes.remove}
-                  onClick={() => updateCart("delete", item)}
-                >
-                  remove
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-        {cart.length > 0 && <CheckoutBtn title="Checkout" setActive={setActive}>${total}</CheckoutBtn>}
+                  </li>
+                );
+              })}
+            </ul>
+            <CheckoutBtn title="Checkout" setActive={setActive}>
+              ${total}
+            </CheckoutBtn>
+          </Fragment>
+        ) : (
+          <div className={classes.emptyCart}> 
+            <BsCartX className={classes.cartIcon} />
+            <h5>Your Cart Is Empty</h5>
+            <Link href="/products"><a className={classes.shopBtn}>Shop Now</a></Link>
+          </div>
+        )}
       </div>
     </section>
   );
