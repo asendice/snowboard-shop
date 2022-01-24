@@ -1,8 +1,9 @@
 import classes from "./product-grid.module.css";
 import ProductItem from "./product-item";
+import NotFound from "./notfound";
 
 function ProductGrid(props) {
-  const { products, category } = props;
+  const { products, category, setFilters } = props;
   if(products.length > 0){
     return (
       <ul className={classes.container}>
@@ -14,7 +15,7 @@ function ProductGrid(props) {
   }
 
   return (
-    <div> No Products Found</div>
+    <NotFound setFilters={setFilters}/>
   )
 
 }

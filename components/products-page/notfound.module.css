@@ -1,0 +1,28 @@
+.container {
+  height: 100%;
+  width: 100%;
+  grid-row: 3 / 4;
+  grid-column: 2 / 7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+  background-color: pink;
+}
+
+
+.icon {
+  font-size: 10rem;
+}
+
+.container h3 {
+  /* color: #333; */
+}
+
+.clearBtn {
+  padding: 1rem;
+  padding: 3rem;
+  font-size: 2rem;
+  border: solid 1px #333;
+  transition: all .4s;
+}

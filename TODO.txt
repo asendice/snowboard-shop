@@ -2,4 +2,6 @@
 2) initialize sort state with A-Z Name -- DONE
 3) Shopping cart is empty render if cart state === 0 -- DONE
 4) Add Accessories 
-5) notification message ui
+5) notification message ui -- DONE
+6) No Product Found 
+7) api for orders
