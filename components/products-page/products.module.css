@@ -3,7 +3,6 @@
   width: 100vw;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 3vh 7vh;
 }
 
 .pageNav {

@@ -13,8 +13,7 @@
 .content {
   position: absolute;
   visibility: hidden;
-  min-height: 90vh;
-  max-height: 90vh;
+  height: 75rem;
   width: 35rem;
   background-color: #fff;
   color: black;
