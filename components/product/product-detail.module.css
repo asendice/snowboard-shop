@@ -62,7 +62,7 @@
 @media only screen and (max-width: 550px) {
   .container {
     grid-template-columns: 2vh 1fr 2vh;
-    grid-template-rows: 10vh 50vh 35vh;
+    grid-template-rows: 10vh 70vh 45vh 45vh 45vh;
   }
 
   .image {
