@@ -11,7 +11,7 @@ function HomePage(props) {
     <Fragment> 
       <Hero />
       <Header />
-      <Featured snowboards={snowboards} clothing={clothing} />
+      {/* <Featured snowboards={snowboards} clothing={clothing} /> */}
     </Fragment>
   )
 }

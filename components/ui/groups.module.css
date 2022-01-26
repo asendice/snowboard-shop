@@ -15,3 +15,12 @@
   display: flex;
   align-items: center;
 }
+
+@media only screen and (max-width: 850px) {
+  .container {
+    display: flex;
+    flex-direction:column;
+    padding: 2rem;
+    height: 80vh;
+  }
+}

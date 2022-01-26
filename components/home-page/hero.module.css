@@ -26,10 +26,12 @@
   }
 }
 @media only screen and (max-width: 650px) {
-  .btn {
-    margin-top: 5rem;
-  }
   .container h1 {
     font-size: 4rem;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .container h1 {
+    font-size: 3rem;
   }
 }
