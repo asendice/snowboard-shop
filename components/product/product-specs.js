@@ -16,7 +16,6 @@ function ProductSpecs(props) {
   return (
     <div className={classes.container}>
       <h3>
-        {" "}
         <BsFillGrid3X3GapFill /> Specs{" "}
       </h3>
       <div className={classes.table}>

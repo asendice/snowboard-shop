@@ -1,14 +1,19 @@
 
 .container {
-  width: 60rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
 .container h3 {
+  align-self: flex-start;
   display: flex;
   align-items: center;
 }
 
 .container p {
+  display: flex;
+  flex-wrap: wrap;
   line-height: 2.6rem;
   font-size: 1.8rem;
 }

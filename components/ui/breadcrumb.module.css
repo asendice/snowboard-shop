@@ -13,3 +13,10 @@
   align-items: center;
   color: #777;
 }
+
+
+@media only screen and (max-width: 550px){
+  .list {
+    font-size: 1.2rem;
+  }
+}
