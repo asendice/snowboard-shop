@@ -18,3 +18,18 @@
   color: var(--color-white);
   text-transform : uppercase;
 }
+
+
+@media only screen and (max-width: 1500px) {
+  .container h1 {
+    font-size: 6rem;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .btn {
+    margin-top: 5rem;
+  }
+  .container h1 {
+    font-size: 4rem;
+  }
+}
