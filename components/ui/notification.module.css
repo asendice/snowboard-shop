@@ -1,7 +1,7 @@
 .container {
   position: fixed;
   bottom: 0;
-  width: 70rem;
+  max-width: 70rem;
   left: 0;
   right: 0;
   margin-left: auto;
