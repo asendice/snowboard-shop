@@ -1,6 +1,6 @@
 .container {
   list-style: none;
-  height: 90vh;
+  min-height: 90vh;
   padding: 10rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
