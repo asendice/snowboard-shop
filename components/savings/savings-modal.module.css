@@ -1,7 +1,7 @@
 .container {
   height: 100%;
   position: fixed;
-  z-index: 50;
+  z-index: 200;
   top: 0;
   bottom: 0;
   left: 0;
@@ -41,7 +41,7 @@
 
 .clsBtn {
   font-size: 4rem;
-  color: black;
+  color: #fff;
   align-self: flex-end;
   cursor: pointer;
 }
@@ -113,4 +113,13 @@
   margin-top: .5rem;
   color: red;
   font-size: 1.4rem;
+}
+
+@media only screen and (max-width: 720px){
+  .content {
+    width: 90%;
+  }
+  .content h3 {
+    font-size: 4.5rem;
+  }
 }
