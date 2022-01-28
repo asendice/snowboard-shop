@@ -1,12 +1,16 @@
 .container {
   height: 45rem;
   width: 32rem;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
   padding: 2rem;
+  margin: 2rem 0rem;
   display: flex;
   align-items: center;
   flex-direction: column;
   position: relative;
+  transition: all .4s;
+  z-index: 2;
 }
 
 .imgContainer {
