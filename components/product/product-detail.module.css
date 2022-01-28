@@ -31,9 +31,10 @@
 .desc {
   grid-column: 4 / 6;
   grid-row: 3 / 5;
+  margin-bottom: 2rem;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1100px) {
   .container {
     grid-template-columns: 5vw 1fr 5vw;
     grid-template-rows: 10vh 70vh 55vh;
